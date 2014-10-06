@@ -72,7 +72,7 @@ module focus --moduleName initial-ui/initial-jsf
 web jsf setup --theme SOUTH_STREET
 web jsf setup --implementation APACHE_MYFACES
 
-// Setup Security
+// Setup Security (there is a bug with multimodule projects. You must add spring-tx maven dependency to web module)
 module focus --moduleName initial-ui/initial-mvc
 security setup
 // Setup typical Security (not work in roo 2)
