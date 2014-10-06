@@ -1,0 +1,46 @@
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 11:12:30
+project --topLevelPackage org.myorg.initial.roo --java 7 --projectName initial --packaging POM
+module create --moduleName initial-core --topLevelPackage ~.core --java 7 --packaging JAR
+module focus --moduleName ~
+module create --moduleName initial-business --topLevelPackage ~.business --java 7 --packaging JAR
+module focus --moduleName ~
+module create --moduleName initial-ui --topLevelPackage ~.ui --packaging POM
+module focus --moduleName initial-ui
+module create --moduleName initial-mvc --topLevelPackage ~.web.mvc --java 7 --packaging WAR
+module focus --moduleName initial-ui
+module create --moduleName initial-jsf --topLevelPackage ~.web.jsf --java 7 --packaging WAR
+module focus --moduleName initial-ui
+module create --moduleName initial-web --topLevelPackage ~.web.web --java 7 --packaging WAR
+module focus --moduleName initial-business
+dependency add --groupId org.myorg.initial.roo.core --artifactId initial-core --version 0.1.0.BUILD-SNAPSHOT
+module focus --moduleName initial-ui/initial-mvc
+dependency add --groupId org.myorg.initial.roo.core --artifactId initial-core --version 0.1.0.BUILD-SNAPSHOT
+dependency add --groupId org.myorg.initial.roo.business --artifactId initial-business --version 0.1.0.BUILD-SNAPSHOT
+module focus --moduleName initial-ui/initial-jsf
+dependency add --groupId org.myorg.initial.roo.core --artifactId initial-core --version 0.1.0.BUILD-SNAPSHOT
+dependency add --groupId org.myorg.initial.roo.business --artifactId initial-business --version 0.1.0.BUILD-SNAPSHOT
+module focus --moduleName initial-core
+logging setup --level INFO --package PROJECT
+logging setup --level DEBUG --package PERSISTENCE
+logging setup --level DEBUG --package TRANSACTIONS
+logging setup --level DEBUG --package SECURITY
+module focus --moduleName initial-core
+jpa setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+database properties list --name database.properties --path SPRING_CONFIG_ROOT
+database properties set --key database.url --value jdbc:hsqldb:${user.home}/WKSPC_INITIAL/initial/HSQLDB/initial;shutdown=true;hsqldb.lock_file=false
+database properties set --key database.username --value sa
+jpa setup --provider HIBERNATE --database POSTGRES
+database properties list --name database.properties --path SPRING_CONFIG_ROOT
+database properties set --key database.url --value jdbc:postgresql://localhost:5432/initial?searchpath=public
+database properties set --key database.username --value initial
+database properties set --key database.password --value initial
+database properties list
+module focus --moduleName initial-ui/initial-mvc
+web mvc setup
+web mvc language --code es
+module focus --moduleName initial-ui/initial-jsf
+web jsf setup --theme SOUTH_STREET
+web jsf setup --implementation APACHE_MYFACES
+// script initial.roo
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 11:13:26
