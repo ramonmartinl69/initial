@@ -71,3 +71,13 @@ web mvc language --code es
 module focus --moduleName initial-ui/initial-jsf
 web jsf setup --theme SOUTH_STREET
 web jsf setup --implementation APACHE_MYFACES
+
+// Setup Security
+module focus --moduleName initial-ui/initial-mvc
+security setup
+// Setup typical Security (not work in roo 2)
+//addon remove --bundleSymbolicName com.xsoftwarelabs.spring.roo.addon.typicalsecurity
+//osgi start --url http://spring-roo-addon-typical-security.googlecode.com/files/com.xsoftwarelabs.spring.roo.addon.typicalsecurity-0.1.4.BUILD-SNAPSHOT.jar
+//osgi ps
+//module focus --moduleName initial-ui/initial-mvc
+//typicalsecurity setup	

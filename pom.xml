@@ -16,8 +16,8 @@
     </properties>
     <modules>
         <module>initial-core</module>
-    <module>initial-business</module>
-    <module>initial-ui</module>
+    	<module>initial-business</module>
+    	<module>initial-ui</module>
     </modules>
     <repositories>
         <repository>
