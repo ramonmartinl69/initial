@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.myorg.initial.roo.ui.web.web</groupId>
   <artifactId>initial-web</artifactId>
-  <packaging>war</packaging>
   <version>0.1.0.BUILD-SNAPSHOT</version>
-  <name>initial-web</name>
+  <packaging>war</packaging>
+  <name>initial-web Maven Webapp</name>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
