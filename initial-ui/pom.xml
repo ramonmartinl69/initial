@@ -18,6 +18,7 @@
         <module>initial-mvc</module>
     	<module>initial-jsf</module>
     	<module>initial-web</module>
+<!--     	<module>initial-gwt</module> -->
     </modules>
     <repositories>
         <repository>

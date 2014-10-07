@@ -1,0 +1,29 @@
+//Role
+json add --class ~.domain.security.AuthRole --deepSerialize
+
+//User-Princial
+json add --class ~.domain.security.Principal --deepSerialize
+
+//GeneralAddress Hierarchy
+json add --class ~.domain.model.GeneralAddress --deepSerialize
+
+//HomeAddress (Principal & Secondary)
+focus class ~.domain.model.HomeAddress
+json add --class ~.domain.model.HomeAddress --deepSerialize
+
+//WorkAddress
+focus class ~.domain.model.WorkAddress
+json add --class ~.domain.model.WorkAddress --deepSerialize 
+
+//OtherAddress
+focus class ~.domain.model.OtherAddress
+json add --class ~.domain.model.OtherAddress --deepSerialize
+
+//Person
+//Finders only works 4 active Records
+focus class ~.domain.model.Person
+json add --class ~.domain.model.Person --deepSerialize
+
+//Add JSON conversion to all Entities
+module focus --moduleName initial-core
+json all --deepSerialize 

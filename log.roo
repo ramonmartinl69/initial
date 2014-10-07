@@ -44,3 +44,10 @@ web jsf setup --implementation APACHE_MYFACES
 // script initial.roo
 quit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 11:13:26
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 19:13:39
+module focus --moduleName initial-ui
+module create --moduleName initial-gwt --topLevelPackage ~.web.gwt --java 7 --packaging WAR
+module focus --moduleName initial-ui/initial-gwt
+dependency add --groupId org.myorg.initial.roo.core --artifactId initial-core --version 0.1.0.BUILD-SNAPSHOT
+dependency add --groupId org.myorg.initial.roo.business --artifactId initial-business --version 0.1.0.BUILD-SNAPSHOT
+web gwt setup
