@@ -53,3 +53,14 @@ dependency add --groupId org.myorg.initial.roo.business --artifactId initial-bus
 web gwt setup
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 20:03:46
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-08 09:25:58
+module focus --moduleName initial-core
+// [failed] module focus --moduleName initial-core
+// [failed] script 2_initial_model.roo.temp
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-08 09:26:27
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-08 09:26:28
+// [failed] quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-08 09:26:28
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-08 09:27:54
+// [failed] script --file 2_initial_model.roo.temp
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-08 09:29:20
