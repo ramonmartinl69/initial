@@ -56,7 +56,7 @@ field string --fieldName repeatPassword --transient --sizeMax 100 --sizeMin 3
 field boolean --fieldName enabled
 field string --fieldName activationKey --sizeMax 100 --sizeMin 3
 field set --fieldName roles --type ~.domain.security.AuthRole --cardinality MANY_TO_MANY --fetch EAGER
-field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person
+//field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person
 equals --class ~.domain.security.Principal --excludeFields "id password repeatPassword enabled roles"
 
 //GeneralAddress Hierarchy
@@ -69,7 +69,7 @@ field enum --fieldName province --type ~.domain.reference.ProvinceEnum  --notNul
 field string --fieldName postalCode --notNull --sizeMax 10 --sizeMin 3 --regexp .*\d.*
 field string --fieldName population --notNull --sizeMax 250 --sizeMin 3 
 field string --fieldName addresNumber --notNull --sizeMax 250 --sizeMin 1
-field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+//field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
 equals --class ~.domain.model.GeneralAddress --excludeFields "addressType locationType address country province postalCode population addresNumber"
 
 //HomeAddress (Principal & Secondary)
@@ -101,4 +101,9 @@ field string --fieldName alternateResponse --sizeMax 100 --sizeMin 3
 field reference --fieldName principal --type ~.domain.security.Principal --cardinality ONE_TO_ONE
 field list --fieldName addresses --type ~.domain.model.GeneralAddress --cardinality ONE_TO_MANY --mappedBy person --fetch LAZY
 equals --class ~.domain.model.Person --excludeFields "id firstName lastName lastName2 birthDate nationality photoFile phone question response alternateQuestion alternateResponse actKey principal addresses"
-
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.model.GeneralAddress
+field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.security.Principal
+field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person

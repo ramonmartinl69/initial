@@ -8,7 +8,7 @@ json add --class ~.domain.security.Principal --deepSerialize
 json add --class ~.domain.model.GeneralAddress --deepSerialize
 
 //HomeAddress (Principal & Secondary)
-focus class ~.domain.model.HomeAddress
+focus --class ~.domain.model.HomeAddress
 json add --class ~.domain.model.HomeAddress --deepSerialize
 
 //WorkAddress
@@ -16,12 +16,12 @@ focus class ~.domain.model.WorkAddress
 json add --class ~.domain.model.WorkAddress --deepSerialize 
 
 //OtherAddress
-focus class ~.domain.model.OtherAddress
+focus --class ~.domain.model.OtherAddress
 json add --class ~.domain.model.OtherAddress --deepSerialize
 
 //Person
 //Finders only works 4 active Records
-focus class ~.domain.model.Person
+focus --class ~.domain.model.Person
 json add --class ~.domain.model.Person --deepSerialize
 
 //Add JSON conversion to all Entities
