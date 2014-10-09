@@ -440,3 +440,4 @@ database properties set --key database.url --value jdbc:hsqldb:${user.home}/WKSP
 database properties set --key database.username --value sa
 database properties list
 // script --file C:\Users\Ramon\WKSPC_INITIAL\initial\1_initial_arq-temp.roo
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-10 01:07:18
