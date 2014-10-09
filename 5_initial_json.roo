@@ -1,3 +1,6 @@
+//
+// JSON CONVERTION OF DOMAIN MODEL ENTITIES
+//
 //Role
 json add --class ~.domain.security.AuthRole --deepSerialize
 

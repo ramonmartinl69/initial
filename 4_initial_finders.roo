@@ -1,3 +1,6 @@
+//
+// FINDERS (ONLY WORKS WITH ACTIVE RECORDS)
+//
 module focus --moduleName initial-core
 //Role
 focus --class ~.domain.security.AuthRole

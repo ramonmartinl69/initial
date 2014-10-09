@@ -1,5 +1,6 @@
+//
 // DOMAIN MODEL PERSISTENCE ENTITIES
-
+//
 //Role
 module focus --moduleName initial-core
 entity jpa --class ~.domain.security.AuthRole --serializable --identifierColumn id_role --versionColumn OPT_LOCK --table security_role  --testAutomatically
