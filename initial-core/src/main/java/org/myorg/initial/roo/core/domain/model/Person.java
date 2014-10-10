@@ -1,6 +1,6 @@
 package org.myorg.initial.roo.core.domain.model;
 import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
+import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.serializable.RooSerializable;
 import org.springframework.roo.addon.tostring.RooToString;
 import javax.validation.constraints.NotNull;
@@ -26,7 +26,7 @@ import org.springframework.roo.addon.equals.RooEquals;
 
 @RooJavaBean
 @RooToString
-@RooJpaEntity(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK")
+@RooJpaActiveRecord(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK")
 @RooSerializable
 @RooEquals(excludeFields = { "id", "firstName", "lastName", "lastName2", "birthDate", "nationality", "photoFile", "phone", "question", "response", "alternateQuestion", "alternateResponse", "actKey", "principal", "addresses" })
 public class Person {

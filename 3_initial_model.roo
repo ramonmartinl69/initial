@@ -1,4 +1,6 @@
-//
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
 // DOMAIN MODEL PERSISTENCE ENTITIES
 //
 //Role
@@ -11,7 +13,7 @@ equals --class ~.domain.security.AuthRole --excludeFields "id roleName"
 
 //User-Princial
 module focus --moduleName initial-core
-entity jpa --class ~.domain.security.Principal --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table security_user --testAutomatically  --activeRecord false
+entity jpa --class ~.domain.security.Principal --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table security_user --testAutomatically  --activeRecord true
 field string --fieldName userName --notNull --sizeMax 50 --sizeMin 3 --regexp .+@.+\.[a-z]+
 field string --fieldName password --notNull --sizeMax 100 --sizeMin 3
 field string --fieldName repeatPassword --transient --sizeMax 100 --sizeMin 3
@@ -47,7 +49,7 @@ entity jpa --class ~.domain.model.OtherAddress --extends ~.domain.model.GeneralA
 field boolean --fieldName active
 
 //Person
-entity jpa --class ~.domain.model.Person --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table person --testAutomatically  --activeRecord false
+entity jpa --class ~.domain.model.Person --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table person --testAutomatically  --activeRecord true
 field string --fieldName firstName --notNull --sizeMax 50 --sizeMin 1
 field string --fieldName lastName --notNull --sizeMax 50 --sizeMin 1
 field string --fieldName lastName2 --notNull --sizeMax 50 --sizeMin 1

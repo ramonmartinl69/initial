@@ -1,4 +1,6 @@
-//
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
 // FINDERS (ONLY WORKS WITH ACTIVE RECORDS)
 //
 module focus --moduleName initial-core
