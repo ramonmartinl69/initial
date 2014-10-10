@@ -18,9 +18,9 @@ import org.myorg.initial.roo.core.domain.model.Person;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK")
 @RooSerializable
 @RooEquals(excludeFields = { "id", "password", "repeatPassword", "enabled", "roles" })
+@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK", finders = { "findPrincipalsByUserNameEquals", "findPrincipalsByUserNameLike", "findPrincipalsByUserNameIsNull", "findPrincipalsByUserNameIsNotNull", "findPrincipalsByEnabledNot", "findPrincipalsByActivationKeyEquals" })
 public class Principal {
 
     /**
