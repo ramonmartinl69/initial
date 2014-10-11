@@ -36,3 +36,6 @@ finder list --filter nIF
 finder add findPeopleByNIFLike
 finder list --depth 2 --filter firtsName,lastName
 finder add findPeopleByFirstNameLikeAndLastNameLike
+
+// mvn eclipse:eclipse
+perform eclipse

@@ -10,3 +10,6 @@ repository jpa --interface ~.repository.model.PersonRepository --entity ~.domain
 class --class ~.repository.model.PersonRepositoryImpl
 interface --class ~.repository.AppQueryRepository
 class --class ~.repository.AppQueryRepositoryImpl
+
+// mvn eclipse:eclipse
+perform eclipse
