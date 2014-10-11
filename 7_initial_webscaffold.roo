@@ -1,0 +1,36 @@
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
+// SCAFFOLD WEB CONTROLLERS
+//
+//Scaffold MVC Controllers
+module focus --moduleName initial-ui/initial-mvc
+//web mvc all --package ~.controller
+web mvc scaffold --class ~.controller.security.AuthRoleController --backingType initial-core|~.domain.security.AuthRole --path /roles
+web mvc scaffold --class ~.controller.security.PrincipalController --backingType initial-core|~.domain.security.Principal --path /principals
+web mvc scaffold --class ~.controller.model.HomeAddressController --backingType initial-core|~.domain.model.HomeAddress --path /homeaddresses
+web mvc scaffold --class ~.controller.model.WorkAddressController --backingType initial-core|~.domain.model.WorkAddress --path /workaddresses
+web mvc scaffold --class ~.controller.model.OtherAddressController --backingType initial-core|~.domain.model.OtherAddress --path /otheraddresses
+web mvc scaffold --class ~.controller.model.PersonController --backingType initial-core|~.domain.model.Person --path /persons
+//Scaffold finders
+module focus --moduleName initial-ui/initial-mvc
+//web mvc finder all
+web mvc finder add --formBackingType initial-core|~.domain.security.AuthRole --class ~.controller.security.AuthRoleController
+web mvc finder add --formBackingType initial-core|~.domain.security.Principal --class ~.controller.security.PrincipalController
+web mvc finder add --formBackingType initial-core|~.domain.model.HomeAddress --class ~.controller.model.HomeAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.WorkAddress --class ~.controller.model.WorkAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.OtherAddress --class ~.controller.model.OtherkAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.Person --class ~.controller.model.PersonController
+
+//Scaffold JSF Controllers
+module focus --moduleName initial-ui/initial-jsf
+web jsf all --package ~.controller
+
+//Scaffold GWT Controllers
+module focus --moduleName initial-ui/initial-gwt
+//web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
+web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.AuthRole
+web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.Principal
+
+// mvn eclipse:eclipse
+perform eclipse
