@@ -3,6 +3,7 @@
 // roo> script --file initial.roo (Invoke the Script from within the Roo shell)
 // SERVICES
 //
+module focus --moduleName initial-core
 service type --interface ~.service.security.PrincipalService --entity ~.domain.security.Principal
 class --class ~.service.security.PrincipalServiceImpl
 service type --interface ~.service.model.PersonService --entity ~.domain.model.Person

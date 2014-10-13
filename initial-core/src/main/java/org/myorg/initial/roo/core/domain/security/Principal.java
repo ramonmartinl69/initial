@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 import org.myorg.initial.roo.core.domain.model.Person;
 import org.springframework.roo.addon.equals.RooEquals;
 import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.serializable.RooSerializable;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -23,7 +24,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooSerializable
 @RooEquals(excludeFields = { "id", "password", "repeatPassword", "enabled", "roles" })
 @RooJpaEntity(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK")
-//@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK", finders = { "findPrincipalsByUserNameEquals", "findPrincipalsByUserNameLike", "findPrincipalsByUserNameIsNull", "findPrincipalsByUserNameIsNotNull", "findPrincipalsByEnabledNot", "findPrincipalsByActivationKeyEquals" })
+//@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK", finders = { "findPrincipalsByRoles", "findPrincipalsByUserNameEquals", "findPrincipalsByUserNameLike", "findPrincipalsByUserNameIsNull", "findPrincipalsByUserNameIsNotNull", "findPrincipalsByEnabledNot", "findPrincipalsByActivationKeyEquals" })
 public class Principal {
 
     /**
