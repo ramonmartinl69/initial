@@ -1,9 +1,5 @@
 package org.myorg.initial.roo.core.domain.model;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.serializable.RooSerializable;
-import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.beans.factory.annotation.Configurable;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Enumerated;
@@ -18,7 +14,6 @@ import javax.validation.constraints.Size;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
 import javax.validation.constraints.Pattern;
-import org.springframework.roo.addon.equals.RooEquals;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -40,12 +35,7 @@ import javax.persistence.Version;
 @Table(name = "address")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn
-@Configurable
-@RooJavaBean
-@RooToString
-@RooSerializable
-@RooEquals(excludeFields = { "addressType", "locationType", "address", "country", "province", "postalCode", "population", "addresNumber" })
-@RooJpaActiveRecord(identifierColumn = "id_address", inheritanceType = "SINGLE_TABLE", table = "address", versionColumn = "OPT_LOCK", finders = { "findGeneralAddressesByPerson", "findGeneralAddressesByAddressLike" })
+@Configurable
 public abstract class GeneralAddress implements Serializable  {
 
     /**

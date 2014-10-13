@@ -8,12 +8,10 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.myorg.initial.roo.core.domain.reference.SecurityRoleEnum;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.dod.RooDataOnDemand;
 import org.springframework.stereotype.Component;
 
 @Configurable
 @Component
-@RooDataOnDemand(entity = AuthRole.class)
 public class AuthRoleDataOnDemand {
 
 	private Random rnd = new SecureRandom();

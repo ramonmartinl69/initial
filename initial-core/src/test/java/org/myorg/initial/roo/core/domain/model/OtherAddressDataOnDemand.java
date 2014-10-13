@@ -12,12 +12,10 @@ import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.dod.RooDataOnDemand;
 import org.springframework.stereotype.Component;
 
 @Configurable
 @Component
-@RooDataOnDemand(entity = OtherAddress.class)
 public class OtherAddressDataOnDemand {
 
 	private Random rnd = new SecureRandom();

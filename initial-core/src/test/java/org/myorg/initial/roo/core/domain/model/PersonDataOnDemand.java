@@ -15,12 +15,10 @@ import org.myorg.initial.roo.core.domain.security.PrincipalDataOnDemand;
 import org.myorg.initial.roo.core.repository.model.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.dod.RooDataOnDemand;
 import org.springframework.stereotype.Component;
 
 @Configurable
 @Component
-@RooDataOnDemand(entity = Person.class)
 public class PersonDataOnDemand {
 
 	public void setNIF(Person obj, int index) {

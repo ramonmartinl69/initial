@@ -10,12 +10,10 @@ import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.dod.RooDataOnDemand;
 import org.springframework.stereotype.Component;
 
 @Component
 @Configurable
-@RooDataOnDemand(entity = Principal.class)
 public class PrincipalDataOnDemand {
 
 	public void setUserName(Principal obj, int index) {

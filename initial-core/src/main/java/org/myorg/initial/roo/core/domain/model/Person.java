@@ -1,9 +1,4 @@
-package org.myorg.initial.roo.core.domain.model;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
-import org.springframework.roo.addon.serializable.RooSerializable;
-import org.springframework.roo.addon.tostring.RooToString;
+package org.myorg.initial.roo.core.domain.model;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -19,7 +14,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import javax.validation.constraints.Pattern;
 import javax.persistence.Lob;
-import org.springframework.roo.classpath.operations.jsr303.RooUploadedFile;
 import org.myorg.initial.roo.core.domain.reference.SemanticQuestionEnum;
 import javax.persistence.OneToOne;
 import org.myorg.initial.roo.core.domain.security.Principal;
@@ -35,16 +29,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
-import org.springframework.roo.addon.equals.RooEquals;
 
 @Entity
-@Table(name = "person")
-@RooJavaBean
-@RooToString
-@RooSerializable
-@RooEquals(excludeFields = { "id", "firstName", "lastName", "lastName2", "birthDate", "nationality", "photoFile", "phone", "question", "response", "alternateQuestion", "alternateResponse", "actKey", "principal", "addresses" })
-@RooJpaEntity(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK")
-//@RooJpaActiveRecord(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK", finders = { "findPeopleByNIFLike", "findPeopleByFirstNameLikeAndLastNameLike" })
+@Table(name = "person")
 public class Person implements Serializable {
 
     /**
@@ -86,7 +73,6 @@ public class Person implements Serializable {
 
     /**
      */
-    @RooUploadedFile(contentType = "image/jpeg")
     @Lob
     private byte[] photoFile;
 

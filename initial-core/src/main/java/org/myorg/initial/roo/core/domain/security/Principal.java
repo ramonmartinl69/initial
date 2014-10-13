@@ -21,22 +21,10 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.myorg.initial.roo.core.domain.model.Person;
-import org.springframework.roo.addon.equals.RooEquals;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
-import org.springframework.roo.addon.serializable.RooSerializable;
-import org.springframework.roo.addon.tostring.RooToString;
+import org.myorg.initial.roo.core.domain.model.Person;
 
 @Entity
-@Table(name = "security_user")
-@RooJavaBean
-@RooToString
-@RooSerializable
-@RooEquals(excludeFields = { "id", "password", "repeatPassword", "enabled", "roles" })
-@RooJpaEntity(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK")
-//@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK", finders = { "findPrincipalsByRoles", "findPrincipalsByUserNameEquals", "findPrincipalsByUserNameLike", "findPrincipalsByUserNameIsNull", "findPrincipalsByUserNameIsNotNull", "findPrincipalsByEnabledNot", "findPrincipalsByActivationKeyEquals" })
+@Table(name = "security_user")
 public class Principal implements Serializable {
 
     /**

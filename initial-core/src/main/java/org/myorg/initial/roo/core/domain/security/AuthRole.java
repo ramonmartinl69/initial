@@ -1,9 +1,5 @@
 package org.myorg.initial.roo.core.domain.security;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.serializable.RooSerializable;
-import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.beans.factory.annotation.Configurable;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -24,17 +20,11 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.myorg.initial.roo.core.domain.reference.SecurityRoleEnum;
 import javax.validation.constraints.Size;
-import org.springframework.roo.addon.equals.RooEquals;
 import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
 @Entity
-@Table(name = "security_role")
-@RooJavaBean
-@RooToString
-@RooSerializable
-@RooEquals(excludeFields = { "id", "roleName" })
-@RooJpaActiveRecord(identifierColumn = "id_role", table = "security_role", versionColumn = "OPT_LOCK", finders = { "findAuthRolesByAuthority", "findAuthRolesByRoleNameLike" })
+@Table(name = "security_role")
 public class AuthRole implements Serializable {
 
     /**

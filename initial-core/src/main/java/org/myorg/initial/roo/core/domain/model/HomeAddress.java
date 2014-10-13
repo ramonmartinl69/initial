@@ -3,17 +3,11 @@ import java.util.List;
 import javax.persistence.Entity;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.transaction.annotation.Transactional;
 
 @Configurable
-@Entity
-@RooJavaBean
-@RooToString
-@RooJpaActiveRecord
+@Entity
 public class HomeAddress extends GeneralAddress {
 
 	public static final List<String> fieldNames4OrderClauseFilter = java.util.Arrays.asList("");
