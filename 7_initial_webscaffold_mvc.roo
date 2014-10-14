@@ -23,4 +23,5 @@ web mvc finder add --formBackingType initial-core|~.domain.model.OtherAddress --
 web mvc finder add --formBackingType initial-core|~.domain.model.Person --class ~.controller.model.PersonController
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse

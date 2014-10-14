@@ -10,4 +10,5 @@ web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request
 web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.Principal
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse

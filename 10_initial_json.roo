@@ -42,4 +42,5 @@ web mvc json add --jsonObject initial-core|~.domain.model.OtherAddress --class ~
 web mvc json add --jsonObject initial-core|~.domain.model.Person --class ~.controller.model.json.PersonControllerJson
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse

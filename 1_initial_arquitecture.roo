@@ -90,5 +90,6 @@ security setup
 //typicalsecurity setup	
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse
 

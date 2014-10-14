@@ -7,4 +7,5 @@
 module focus --moduleName initial-ui/initial-jsf
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse

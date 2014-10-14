@@ -13,4 +13,5 @@ email template setup --from ramonmartinl69@gmail.com --subject "Person Registrat
 field email template --fieldName mailTemplate  --class ~.service.email.NotificationServiceImpl
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse

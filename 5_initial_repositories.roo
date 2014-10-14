@@ -12,4 +12,5 @@ interface --class ~.repository.AppQueryRepository
 class --class ~.repository.AppQueryRepositoryImpl
 
 // mvn eclipse:eclipse
+module focus --moduleName ~
 perform eclipse
