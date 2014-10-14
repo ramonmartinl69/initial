@@ -14,6 +14,7 @@ import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.core.domain.security.PrincipalDataOnDemand;
 import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
+import org.myorg.initial.roo.core.service.security.PrincipalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +28,9 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
     
     @Autowired
     PersonDataOnDemand PrincipalDataOnDemand.personDataOnDemand;
+    
+    @Autowired
+    PrincipalService PrincipalDataOnDemand.principalService;
     
     @Autowired
     PrincipalRepository PrincipalDataOnDemand.principalRepository;
@@ -71,14 +75,14 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
         }
         Principal obj = data.get(index);
         Long id = obj.getId();
-        return principalRepository.findOne(id);
+        return principalService.findPrincipal(id);
     }
     
     public Principal PrincipalDataOnDemand.getRandomPrincipal() {
         init();
         Principal obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return principalRepository.findOne(id);
+        return principalService.findPrincipal(id);
     }
     
     public boolean PrincipalDataOnDemand.modifyPrincipal(Principal obj) {
@@ -88,7 +92,7 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
     public void PrincipalDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = principalRepository.findAll(new org.springframework.data.domain.PageRequest(from / to, to)).getContent();
+        data = principalService.findPrincipalEntries(from, to);
         if (data == null) {
             throw new IllegalStateException("Find entries implementation for 'Principal' illegally returned null");
         }
@@ -100,7 +104,7 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
         for (int i = 0; i < 10; i++) {
             Principal obj = getNewTransientPrincipal(i);
             try {
-                principalRepository.save(obj);
+                principalService.savePrincipal(obj);
             } catch (final ConstraintViolationException e) {
                 final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
