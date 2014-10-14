@@ -1,0 +1,73 @@
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
+// DOMAIN MODEL PERSISTENCE ENTITIES
+//
+//Role
+module focus --moduleName initial-core
+entity jpa --class ~.domain.security.AuthRole --serializable --identifierColumn id_role --versionColumn OPT_LOCK --table security_role  --testAutomatically
+//field string --fieldName authority --notNull --sizeMax 10 --sizeMin 8 --regexp ^ROLE_[A-Z]*
+field enum --fieldName authority  --notNull --type ~.domain.reference.SecurityRoleEnum
+field string --fieldName roleName --notNull --sizeMax 100 --sizeMin 3
+equals --class ~.domain.security.AuthRole --excludeFields "id roleName"
+
+//User-Princial
+module focus --moduleName initial-core
+entity jpa --class ~.domain.security.Principal --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table security_user --testAutomatically  --activeRecord true
+field string --fieldName userName --notNull --sizeMax 50 --sizeMin 3 --regexp .+@.+\.[a-z]+
+field string --fieldName password --notNull --sizeMax 100 --sizeMin 3
+field string --fieldName repeatPassword --transient --sizeMax 100 --sizeMin 3
+field boolean --fieldName enabled
+field string --fieldName activationKey --sizeMax 100 --sizeMin 3
+field set --fieldName roles --type ~.domain.security.AuthRole --cardinality MANY_TO_MANY --fetch EAGER
+//field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person
+equals --class ~.domain.security.Principal --excludeFields "id password repeatPassword enabled roles"
+
+//GeneralAddress Hierarchy
+entity jpa --class ~.domain.model.GeneralAddress --serializable --abstract --identifierColumn id_address --versionColumn OPT_LOCK --table address --inheritanceType SINGLE_TABLE
+field enum --fieldName addressType --type ~.domain.reference.AddressTypeEnum  --notNull
+field enum --fieldName locationType --type ~.domain.reference.AddresLocationTypeEnum  --notNull
+field string --fieldName address --notNull --sizeMax 250 --sizeMin 3
+field enum --fieldName country --type ~.domain.reference.CountryEnum 
+field enum --fieldName province --type ~.domain.reference.ProvinceEnum  --notNull
+field string --fieldName postalCode --notNull --sizeMax 10 --sizeMin 3 --regexp .*\d.*
+field string --fieldName population --notNull --sizeMax 250 --sizeMin 3 
+field string --fieldName addresNumber --notNull --sizeMax 250 --sizeMin 1
+//field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+equals --class ~.domain.model.GeneralAddress --excludeFields "addressType locationType address country province postalCode population addresNumber"
+
+//HomeAddress (Principal & Secondary)
+entity jpa --class ~.domain.model.HomeAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+
+//WorkAddress
+entity jpa --class ~.domain.model.WorkAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+field string --fieldName enterpriseName --notNull --sizeMax 250 --sizeMin 3 
+field string --fieldName postalAddress --notNull --sizeMax 250 --sizeMin 3
+
+//OtherAddress
+entity jpa --class ~.domain.model.OtherAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+field boolean --fieldName active
+
+//Person
+entity jpa --class ~.domain.model.Person --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table person --testAutomatically  --activeRecord true
+field string --fieldName firstName --notNull --sizeMax 50 --sizeMin 1
+field string --fieldName lastName --notNull --sizeMax 50 --sizeMin 1
+field string --fieldName lastName2 --notNull --sizeMax 50 --sizeMin 1
+field date --fieldName birthDate --type java.util.Date --dateFormat MEDIUM --notNull
+field enum --fieldName nationality --type ~.domain.reference.CountryEnum 
+field string --fieldName nIF --notNull --sizeMax 15 --sizeMin 9 --regexp  ([X-Z]{1}\d{7}[A-Z]{1})|(\d{8}[A-Z]{1})
+field file --fieldName photoFile --contentType JPG
+field string --fieldName phone --sizeMax 15 --sizeMin 3 --notNull --regexp .*\d.*	
+field enum --fieldName question --type ~.domain.reference.SemanticQuestionEnum
+field string --fieldName response --sizeMax 100 --sizeMin 3
+field string --fieldName alternateQuestion --sizeMax 100 --sizeMin 3
+field string --fieldName alternateResponse --sizeMax 100 --sizeMin 3
+field reference --fieldName principal --type ~.domain.security.Principal --cardinality ONE_TO_ONE
+field list --fieldName addresses --type ~.domain.model.GeneralAddress --cardinality ONE_TO_MANY --mappedBy person --fetch LAZY
+equals --class ~.domain.model.Person --excludeFields "id firstName lastName lastName2 birthDate nationality photoFile phone question response alternateQuestion alternateResponse actKey principal addresses"
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.model.GeneralAddress
+field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.security.Principal
+field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person

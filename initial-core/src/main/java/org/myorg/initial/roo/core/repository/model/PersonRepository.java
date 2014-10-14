@@ -1,9 +1,7 @@
 package org.myorg.initial.roo.core.repository.model;
 import org.myorg.initial.roo.core.domain.model.Person;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.stereotype.Repository;
+import org.springframework.roo.addon.layers.repository.jpa.RooJpaRepository;
 
-@Repository
-public interface PersonRepository extends JpaRepository<Person, Long>, JpaSpecificationExecutor<Person> {
+@RooJpaRepository(domainType = Person.class)
+public interface PersonRepository {
 }
