@@ -1,0 +1,13 @@
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
+// SCAFFOLD WEB CONTROLLERS
+//
+//Scaffold GWT Controllers
+module focus --moduleName initial-ui/initial-gwt
+//web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
+web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.AuthRole
+web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.Principal
+
+// mvn eclipse:eclipse
+perform eclipse

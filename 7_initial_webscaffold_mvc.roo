@@ -22,15 +22,5 @@ web mvc finder add --formBackingType initial-core|~.domain.model.WorkAddress --c
 web mvc finder add --formBackingType initial-core|~.domain.model.OtherAddress --class ~.controller.model.OtherAddressController
 web mvc finder add --formBackingType initial-core|~.domain.model.Person --class ~.controller.model.PersonController
 
-//Scaffold JSF Controllers
-module focus --moduleName initial-ui/initial-jsf
-web jsf all --package ~.controller
-
-//Scaffold GWT Controllers
-module focus --moduleName initial-ui/initial-gwt
-//web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
-web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.AuthRole
-web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request --type initial-core|~.domain.security.Principal
-
 // mvn eclipse:eclipse
 perform eclipse

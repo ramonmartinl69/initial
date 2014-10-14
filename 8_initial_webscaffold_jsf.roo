@@ -1,0 +1,10 @@
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
+// SCAFFOLD WEB CONTROLLERS
+//
+//Scaffold JSF Controllers
+module focus --moduleName initial-ui/initial-jsf
+
+// mvn eclipse:eclipse
+perform eclipse
