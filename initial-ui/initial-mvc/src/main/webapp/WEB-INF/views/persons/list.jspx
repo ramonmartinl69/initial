@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_myorg_initial_roo_core_domain_model_Person" items="${people}" z="go6t1GlMshI2epx3nbUioJviMbI=">
+        <table:table data="${people}" id="l_org_myorg_initial_roo_core_domain_model_Person" path="/persons" z="+TH3+fq3NykrjmY5ET/7D1Bqrvk=">
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_Person_firstName" property="firstName" z="ILGzJyA3PIZS8fFdfkXcdCNIjXU="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_Person_lastName" property="lastName" z="0Jugqrc6XCwMyUVBZc+L9TOq900="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_Person_lastName2" property="lastName2" z="jDfxb4cIApiN9JdlFgCZ+iyljpg="/>
+            <table:column date="true" dateTimePattern="${person_birthdate_date_format}" id="c_org_myorg_initial_roo_core_domain_model_Person_birthDate" property="birthDate" z="t0M4/BUCv5yTwrQI8C8XyKCx2kc="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_Person_nationality" property="nationality" z="2CFFni2KMrMTSpXH4nwoeSQZ/Q8="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_Person_nIF" property="NIF" z="GCBzYTiPjh/TDXbCSQu5bjHNLCY="/>
+        </table:table>
+    </page:list>
+</div>

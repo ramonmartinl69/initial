@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_myorg_initial_roo_core_domain_model_OtherAddress" object="${otheraddress}" path="/otheraddresses" z="xzRmn64ymX43Idoh3nnCZaGEtgc=">
+        <field:display field="addressType" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_addressType" object="${otheraddress}" z="1QytQfF64xoV7vtDtRhYlbgwlBM="/>
+        <field:display field="locationType" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_locationType" object="${otheraddress}" z="v45VASv6qGlw6IE4Meezj8/9WPE="/>
+        <field:display field="address" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_address" object="${otheraddress}" z="FENIG/Ese58hHacBRlzjma5Vi/U="/>
+        <field:display field="country" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_country" object="${otheraddress}" z="k/Ku1eszvDsd5eQXjHRqWBRzQMw="/>
+        <field:display field="province" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_province" object="${otheraddress}" z="j4NC5JQnHBkkV4LiVctuJgtMoKg="/>
+        <field:display field="postalCode" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_postalCode" object="${otheraddress}" z="x6TMrzL9HZiLXmxtqmFLcq1u1GI="/>
+        <field:display field="population" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_population" object="${otheraddress}" z="pQ9jpRweaZqTngQo9Zu1GayDsLg="/>
+        <field:display field="addresNumber" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_addresNumber" object="${otheraddress}" z="/EgRhugnMv/6QDqJnN4iySusTIU="/>
+        <field:display field="person" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_person" object="${otheraddress}" z="Ka61ttrAopAiDpUBcMyaKJdUCKU="/>
+        <field:display field="active" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_active" object="${otheraddress}" z="ay/yFtt4xCPXXT+YoQUK2BTj27o="/>
+    </page:show>
+</div>

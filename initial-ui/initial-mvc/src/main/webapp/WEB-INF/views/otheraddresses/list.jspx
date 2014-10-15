@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_myorg_initial_roo_core_domain_model_OtherAddress" items="${otheraddresses}" z="AaLX3nQ8WN3i+xCfmRPtSpiN9Gw=">
+        <table:table data="${otheraddresses}" id="l_org_myorg_initial_roo_core_domain_model_OtherAddress" path="/otheraddresses" z="tBsy28b7V1GifysNxlvciP/OgJQ=">
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_addressType" property="addressType" z="ihD/0sqPICNlrhDfVDsyJbpkDUs="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_locationType" property="locationType" z="hPQaGAu1e79I7Kca/cs1zlWGOtg="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_address" property="address" z="snLrvR83hhFOdNuaqPxg64e2n7I="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_country" property="country" z="aiGUS4KrblDzxJNfS4mvKeJRaHs="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_province" property="province" z="TNHUs8R0L5zpl5RlnvH9adhG0cw="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_postalCode" property="postalCode" z="eDDhZnKJ9Oh7Zp0h/fPEt4Ml5p8="/>
+        </table:table>
+    </page:list>
+</div>

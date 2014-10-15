@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByRoleNameLike" id="ff_org_myorg_initial_roo_core_domain_security_AuthRole" path="/roles" z="4Q4PYY/y6QV+U1Xkcku66aH3jVM=">
+        <field:input disableFormBinding="true" field="roleName" id="f_org_myorg_initial_roo_core_domain_security_AuthRole_roleName" max="100" min="3" required="true" z="Z10f+jtubtrDHuKk9bFoOniiO+I="/>
+    </form:find>
+</div>
