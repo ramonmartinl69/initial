@@ -11,7 +11,7 @@ finder add --finderName findAuthRolesByAuthority
 finder add --finderName findAuthRolesByRoleNameLike
 
 //User-Princial
-//Finders only works 4 active Records
+//Finders only works 4 active Records (Must go in AppQueryRepository)
 focus --class ~.domain.security.Principal
 finder list --filter userName
 finder add --finderName findPrincipalsByRoles
@@ -30,7 +30,7 @@ finder list --filter address
 finder add --finderName findGeneralAddressesByAddressLike
 
 //Person
-//Finders only works 4 active Records
+//Finders only works 4 active Records (Must go in AppQueryRepository)
 focus --class ~.domain.model.Person
 finder list --filter nIF
 finder add findPeopleByNIFLike
