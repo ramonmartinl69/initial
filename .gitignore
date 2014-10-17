@@ -5,3 +5,6 @@ target
 log.roo
 /log.roo
 .svn
+/HSQLDB/initial.log
+/HSQLDB/initial.properties
+/HSQLDB/initial.script
