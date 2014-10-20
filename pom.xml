@@ -18,6 +18,9 @@
         <module>initial-core</module>
     	<module>initial-business</module>
     	<module>initial-ui</module>
+    	<module>initial-deploy-mvc</module>
+    	<module>initial-deploy-jsf</module>
+    	<module>initial-deploy-web</module>
     </modules>
     <repositories>
         <repository>
