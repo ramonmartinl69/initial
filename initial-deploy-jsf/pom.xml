@@ -11,6 +11,7 @@
   <artifactId>initial-deploy-jsf</artifactId>
   <version>0.1.0.BUILD-SNAPSHOT</version>
   <name>initial-deploy-jsf</name>
+  <description>Deploy a version from a Maven Repository</description>
   <packaging>war</packaging>                       
   <url>http://maven.apache.org</url>
   <properties>
