@@ -9,3 +9,4 @@ log.roo
 /HSQLDB/initial.properties
 /HSQLDB/initial.script
 .checkstyle
+.pmd
