@@ -8,3 +8,4 @@ log.roo
 /HSQLDB/initial.log
 /HSQLDB/initial.properties
 /HSQLDB/initial.script
+.checkstyle
