@@ -387,6 +387,26 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
+            <!-- Site -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<reportPlugins>
+						<!-- Checkstyle -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.4</version>
+							<configuration>
+								<configLocation>
+									${basedir}/src/main/resources/initial-checkstyle.xml
+								</configLocation>
+							</configuration>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 </project>
