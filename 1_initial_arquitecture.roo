@@ -73,9 +73,11 @@ database properties list
 module focus --moduleName initial-ui/initial-mvc
 web mvc setup
 web mvc language --code es
+// Setup JSF UI
 module focus --moduleName initial-ui/initial-jsf
 web jsf setup --theme SOUTH_STREET
 web jsf setup --implementation APACHE_MYFACES
+// Setup GWT UI
 module focus --moduleName initial-ui/initial-gwt
 web gwt setup
 
