@@ -1,6 +1,6 @@
 // TO EXECUTE THIS: 
 // $roo script initial.roo (Invoke the Script as you load the Shell)
-// roo> script --file initial.roo (Invoke the Script from within the Roo shell)
+// roo> script --file C:\Users\Ramon\WKSPC_INITIAL\initial\initial.roo (Invoke the Script from within the Roo shell)
 // DOMAIN MODEL PERSISTENCE ENTITIES
 //
 //Role
