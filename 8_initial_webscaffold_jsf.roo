@@ -5,7 +5,13 @@
 //
 //Scaffold JSF Controllers
 module focus --moduleName initial-ui/initial-jsf
-web jsf all --package ~.controller
+//web jsf all --package ~.controller
+web jsf scaffold --class ~.controller.security.AuthRoleBean --entity initial-core|~.domain.security.AuthRole
+web jsf scaffold --class ~.controller.security.PrincipalBean --entity initial-core|~.domain.security.Principal
+web jsf scaffold --class ~.controller.model.HomeAddressBean --entity initial-core|~.domain.model.HomeAddress
+web jsf scaffold --class ~.controller.model.WorkAddressBean --entity initial-core|~.domain.model.WorkAddress
+web jsf scaffold --class ~.controller.model.OtherAddressBean --entity initial-core|~.domain.model.OtherAddress
+web jsf scaffold --class ~.controller.model.PersonBean --entity initial-core|~.domain.model.Person
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
