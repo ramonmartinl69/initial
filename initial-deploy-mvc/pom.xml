@@ -25,6 +25,7 @@
 	<plugins>
 		<plugin>
 			<artifactId>maven-war-plugin</artifactId>
+			<version>2.3</version>
 			<configuration>
 				<warName>initial-mvc</warName>
 				<overlays>
