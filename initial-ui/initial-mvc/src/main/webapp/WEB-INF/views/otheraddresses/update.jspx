@@ -11,7 +11,7 @@
         <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="/zD6jXHwLdbSvtx1Rjrn5qvL9+E="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_population" required="true" z="2Xq9dAbsujFPfF5UX+5qVhblv/A="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_addresNumber" required="true" z="kd2T6xBXur0sus/D59CCIJ7h0sQ="/>
-        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_person" itemValue="id" items="${people}" path="/people" z="K2CR9GUZTCqC8zY+NdP/RVrh9IA="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_person" itemValue="id" items="${people}" path="/persons" z="KNqgqOtikBhrV7++GuluZ+Am6qQ="/>
         <field:checkbox field="active" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_active" z="NiS1gtgTH4lJPVsZFZpDGTe3UKc="/>
     </form:update>
 </div>

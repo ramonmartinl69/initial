@@ -11,7 +11,7 @@
         <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="7QT3rpwzd3WOxrPBN5dRdobOW70="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_population" required="true" z="gpJvRUrCr968XFhys1feXwo9Bv4="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber" required="true" z="oLALSZPviudH8yS2oMEGR6XRnvI="/>
-        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_person" itemValue="id" items="${people}" path="/people" z="0UaFYgz5z9lZya82MMCUo81w1a4="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_person" itemValue="id" items="${people}" path="/persons" z="YA+jP8iJ02iaWDnUyQS6geMJujg="/>
         <field:textarea field="enterpriseName" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName" required="true" z="MhNR07YlWnk3W4ux1RRxjXUzFYc="/>
         <field:textarea field="postalAddress" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress" required="true" z="xoUWqmABqAjUgYQpRLxL3k7vhMI="/>
     </form:create>
