@@ -8,6 +8,7 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.myorg.initial.roo.core.domain.model.HomeAddress;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
@@ -91,6 +92,7 @@ privileged aspect HomeAddressController_Roo_Controller {
     
     void HomeAddressController.populateEditForm(Model uiModel, HomeAddress homeAddress) {
         uiModel.addAttribute("homeAddress", homeAddress);
+        uiModel.addAttribute("people", Person.findAllPeople());
         uiModel.addAttribute("addreslocationtypeenums", Arrays.asList(AddresLocationTypeEnum.values()));
         uiModel.addAttribute("addresstypeenums", Arrays.asList(AddressTypeEnum.values()));
         uiModel.addAttribute("countryenums", Arrays.asList(CountryEnum.values()));

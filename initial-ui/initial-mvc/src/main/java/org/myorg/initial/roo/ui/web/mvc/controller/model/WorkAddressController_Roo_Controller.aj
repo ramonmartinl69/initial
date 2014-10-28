@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.model.WorkAddress;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
@@ -91,6 +92,7 @@ privileged aspect WorkAddressController_Roo_Controller {
     
     void WorkAddressController.populateEditForm(Model uiModel, WorkAddress workAddress) {
         uiModel.addAttribute("workAddress", workAddress);
+        uiModel.addAttribute("people", Person.findAllPeople());
         uiModel.addAttribute("addreslocationtypeenums", Arrays.asList(AddresLocationTypeEnum.values()));
         uiModel.addAttribute("addresstypeenums", Arrays.asList(AddressTypeEnum.values()));
         uiModel.addAttribute("countryenums", Arrays.asList(CountryEnum.values()));

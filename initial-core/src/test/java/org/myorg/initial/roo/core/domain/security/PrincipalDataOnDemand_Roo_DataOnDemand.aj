@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.core.domain.security.PrincipalDataOnDemand;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
@@ -24,14 +23,12 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
     
     private List<Principal> PrincipalDataOnDemand.data;
     
-    @Autowired
-    PersonDataOnDemand PrincipalDataOnDemand.personDataOnDemand;
-    
     public Principal PrincipalDataOnDemand.getNewTransientPrincipal(int index) {
         Principal obj = new Principal();
         setActivationKey(obj, index);
         setEnabled(obj, index);
         setPassword(obj, index);
+        setPerson(obj, index);
         setUserName(obj, index);
         return obj;
     }
@@ -55,6 +52,11 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
             password = password.substring(0, 100);
         }
         obj.setPassword(password);
+    }
+    
+    public void PrincipalDataOnDemand.setPerson(Principal obj, int index) {
+        Person person = null;
+        obj.setPerson(person);
     }
     
     public Principal PrincipalDataOnDemand.getSpecificPrincipal(int index) {
