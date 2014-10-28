@@ -19,11 +19,14 @@ import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.LengthValidator;
 import javax.faces.validator.RegexValidator;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.PrincipalBean;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.converter.AuthRoleConverter;
+import org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.util.MessageFactory;
+import org.primefaces.component.autocomplete.AutoComplete;
 import org.primefaces.component.inputtextarea.InputTextarea;
 import org.primefaces.component.message.Message;
 import org.primefaces.component.outputlabel.OutputLabel;
@@ -246,6 +249,30 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
         rolesCreateInputMessage.setDisplay("icon");
         htmlPanelGrid.getChildren().add(rolesCreateInputMessage);
         
+        OutputLabel personCreateOutput = (OutputLabel) application.createComponent(OutputLabel.COMPONENT_TYPE);
+        personCreateOutput.setFor("personCreateInput");
+        personCreateOutput.setId("personCreateOutput");
+        personCreateOutput.setValue("Person:");
+        htmlPanelGrid.getChildren().add(personCreateOutput);
+        
+        AutoComplete personCreateInput = (AutoComplete) application.createComponent(AutoComplete.COMPONENT_TYPE);
+        personCreateInput.setId("personCreateInput");
+        personCreateInput.setValueExpression("value", expressionFactory.createValueExpression(elContext, "#{principalBean.principal.person}", Person.class));
+        personCreateInput.setCompleteMethod(expressionFactory.createMethodExpression(elContext, "#{principalBean.completePerson}", List.class, new Class[] { String.class }));
+        personCreateInput.setDropdown(true);
+        personCreateInput.setValueExpression("var", expressionFactory.createValueExpression(elContext, "person", String.class));
+        personCreateInput.setValueExpression("itemLabel", expressionFactory.createValueExpression(elContext, "#{person.firstName} #{person.lastName} #{person.lastName2} #{person.birthDate}", String.class));
+        personCreateInput.setValueExpression("itemValue", expressionFactory.createValueExpression(elContext, "#{person}", Person.class));
+        personCreateInput.setConverter(new PersonConverter());
+        personCreateInput.setRequired(false);
+        htmlPanelGrid.getChildren().add(personCreateInput);
+        
+        Message personCreateInputMessage = (Message) application.createComponent(Message.COMPONENT_TYPE);
+        personCreateInputMessage.setId("personCreateInputMessage");
+        personCreateInputMessage.setFor("personCreateInput");
+        personCreateInputMessage.setDisplay("icon");
+        htmlPanelGrid.getChildren().add(personCreateInputMessage);
+        
         return htmlPanelGrid;
     }
     
@@ -369,6 +396,30 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
         rolesEditInputMessage.setDisplay("icon");
         htmlPanelGrid.getChildren().add(rolesEditInputMessage);
         
+        OutputLabel personEditOutput = (OutputLabel) application.createComponent(OutputLabel.COMPONENT_TYPE);
+        personEditOutput.setFor("personEditInput");
+        personEditOutput.setId("personEditOutput");
+        personEditOutput.setValue("Person:");
+        htmlPanelGrid.getChildren().add(personEditOutput);
+        
+        AutoComplete personEditInput = (AutoComplete) application.createComponent(AutoComplete.COMPONENT_TYPE);
+        personEditInput.setId("personEditInput");
+        personEditInput.setValueExpression("value", expressionFactory.createValueExpression(elContext, "#{principalBean.principal.person}", Person.class));
+        personEditInput.setCompleteMethod(expressionFactory.createMethodExpression(elContext, "#{principalBean.completePerson}", List.class, new Class[] { String.class }));
+        personEditInput.setDropdown(true);
+        personEditInput.setValueExpression("var", expressionFactory.createValueExpression(elContext, "person", String.class));
+        personEditInput.setValueExpression("itemLabel", expressionFactory.createValueExpression(elContext, "#{person.firstName} #{person.lastName} #{person.lastName2} #{person.birthDate}", String.class));
+        personEditInput.setValueExpression("itemValue", expressionFactory.createValueExpression(elContext, "#{person}", Person.class));
+        personEditInput.setConverter(new PersonConverter());
+        personEditInput.setRequired(false);
+        htmlPanelGrid.getChildren().add(personEditInput);
+        
+        Message personEditInputMessage = (Message) application.createComponent(Message.COMPONENT_TYPE);
+        personEditInputMessage.setId("personEditInputMessage");
+        personEditInputMessage.setFor("personEditInput");
+        personEditInputMessage.setDisplay("icon");
+        htmlPanelGrid.getChildren().add(personEditInputMessage);
+        
         return htmlPanelGrid;
     }
     
@@ -444,6 +495,16 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
         rolesValue.getChildren().add(rolesValueItems);
         htmlPanelGrid.getChildren().add(rolesValue);
         
+        HtmlOutputText personLabel = (HtmlOutputText) application.createComponent(HtmlOutputText.COMPONENT_TYPE);
+        personLabel.setId("personLabel");
+        personLabel.setValue("Person:");
+        htmlPanelGrid.getChildren().add(personLabel);
+        
+        HtmlOutputText personValue = (HtmlOutputText) application.createComponent(HtmlOutputText.COMPONENT_TYPE);
+        personValue.setValueExpression("value", expressionFactory.createValueExpression(elContext, "#{principalBean.principal.person}", Person.class));
+        personValue.setConverter(new PersonConverter());
+        htmlPanelGrid.getChildren().add(personValue);
+        
         return htmlPanelGrid;
     }
     
@@ -467,6 +528,17 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
             principal.setRoles(new HashSet<AuthRole>(selectedRoles));
         }
         this.selectedRoles = selectedRoles;
+    }
+    
+    public List<Person> PrincipalBean.completePerson(String query) {
+        List<Person> suggestions = new ArrayList<Person>();
+        for (Person person : Person.findAllPeople()) {
+            String personStr = String.valueOf(person.getFirstName() +  " "  + person.getLastName() +  " "  + person.getLastName2() +  " "  + person.getBirthDate());
+            if (personStr.toLowerCase().startsWith(query.toLowerCase())) {
+                suggestions.add(person);
+            }
+        }
+        return suggestions;
     }
     
     public String PrincipalBean.onEdit() {

@@ -12,6 +12,8 @@ import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
 import javax.validation.constraints.Pattern;
 import org.springframework.roo.addon.equals.RooEquals;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
@@ -67,4 +69,10 @@ public abstract class GeneralAddress {
     @NotNull
     @Size(min = 1, max = 250)
     private String addresNumber;
+
+    /**
+     */
+    @ManyToOne
+    @JoinColumn(name = "id_person")
+    private Person person;
 }

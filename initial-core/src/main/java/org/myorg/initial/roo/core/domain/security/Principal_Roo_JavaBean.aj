@@ -4,6 +4,7 @@
 package org.myorg.initial.roo.core.domain.security;
 
 import java.util.Set;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
 
@@ -47,6 +48,14 @@ privileged aspect Principal_Roo_JavaBean {
     
     public void Principal.setRoles(Set<AuthRole> roles) {
         this.roles = roles;
+    }
+    
+    public Person Principal.getPerson() {
+        return this.person;
+    }
+    
+    public void Principal.setPerson(Person person) {
+        this.person = person;
     }
     
 }

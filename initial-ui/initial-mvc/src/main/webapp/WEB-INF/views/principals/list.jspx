@@ -9,6 +9,7 @@
             <table:column id="c_org_myorg_initial_roo_core_domain_security_Principal_enabled" property="enabled" z="alYP4ONROZX10NtDuUAXNJB4tIU="/>
             <table:column id="c_org_myorg_initial_roo_core_domain_security_Principal_activationKey" property="activationKey" z="wX6d3clOeErJkC72dpZDhDnMwEA="/>
             <table:column id="c_org_myorg_initial_roo_core_domain_security_Principal_roles" property="roles" z="ciguLviQFOF1Z74HY1qmH620iSk="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_security_Principal_person" property="person" z="G/5WCvf3CrqU8oWB9zdeW+Hez3U="/>
         </table:table>
     </page:list>
 </div>

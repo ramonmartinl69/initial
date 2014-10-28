@@ -12,10 +12,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.myorg.initial.roo.core.domain.model.HomeAddress;
 import org.myorg.initial.roo.core.domain.model.HomeAddressDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
@@ -25,6 +27,9 @@ privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
     private Random HomeAddressDataOnDemand.rnd = new SecureRandom();
     
     private List<HomeAddress> HomeAddressDataOnDemand.data;
+    
+    @Autowired
+    PersonDataOnDemand HomeAddressDataOnDemand.personDataOnDemand;
     
     public HomeAddress HomeAddressDataOnDemand.getNewTransientHomeAddress(int index) {
         HomeAddress obj = new HomeAddress();

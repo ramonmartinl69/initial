@@ -23,5 +23,9 @@
             <menu:item id="i_otheraddress_new" messageCode="global_menu_new" url="/otheraddresses?form" z="KkSuBYP4jChZUVcv6HOzULPuREo="/>
             <menu:item id="i_otheraddress_list" messageCode="global_menu_list" url="/otheraddresses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6iiYp/PHWUcA/zy3NJP6dGQOS0E="/>
         </menu:category>
+        <menu:category id="c_person" z="Cz66KzcF6GdyygpbYfiE+EkFFFA=">
+            <menu:item id="i_person_new" messageCode="global_menu_new" url="/persons?form" z="nMBoMUD0qicHj5Fj/4XmcDGhw+A="/>
+            <menu:item id="i_person_list" messageCode="global_menu_list" url="/persons?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6hCMdFwoJHNJrk/cAL0i3N05l1Y="/>
+        </menu:category>
     </menu:menu>
 </div>

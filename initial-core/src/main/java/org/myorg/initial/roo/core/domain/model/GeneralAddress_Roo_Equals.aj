@@ -17,11 +17,11 @@ privileged aspect GeneralAddress_Roo_Equals {
             return true;
         }
         GeneralAddress rhs = (GeneralAddress) obj;
-        return new EqualsBuilder().append(id, rhs.id).isEquals();
+        return new EqualsBuilder().append(id, rhs.id).append(person, rhs.person).isEquals();
     }
     
     public int GeneralAddress.hashCode() {
-        return new HashCodeBuilder().append(id).toHashCode();
+        return new HashCodeBuilder().append(id).append(person).toHashCode();
     }
     
 }

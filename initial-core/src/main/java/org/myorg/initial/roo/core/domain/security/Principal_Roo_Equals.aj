@@ -17,11 +17,11 @@ privileged aspect Principal_Roo_Equals {
             return true;
         }
         Principal rhs = (Principal) obj;
-        return new EqualsBuilder().append(activationKey, rhs.activationKey).append(userName, rhs.userName).isEquals();
+        return new EqualsBuilder().append(activationKey, rhs.activationKey).append(person, rhs.person).append(userName, rhs.userName).isEquals();
     }
     
     public int Principal.hashCode() {
-        return new HashCodeBuilder().append(activationKey).append(userName).toHashCode();
+        return new HashCodeBuilder().append(activationKey).append(person).append(userName).toHashCode();
     }
     
 }

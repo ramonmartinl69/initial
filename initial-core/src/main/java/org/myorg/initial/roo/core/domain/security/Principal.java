@@ -12,6 +12,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import org.springframework.roo.addon.equals.RooEquals;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import org.myorg.initial.roo.core.domain.model.Person;
 
 @RooJavaBean
 @RooToString
@@ -51,4 +54,10 @@ public class Principal {
      */
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<AuthRole> roles = new HashSet<AuthRole>();
+
+    /**
+     */
+    @ManyToOne
+    @JoinColumn(name = "id_person")
+    private Person person;
 }

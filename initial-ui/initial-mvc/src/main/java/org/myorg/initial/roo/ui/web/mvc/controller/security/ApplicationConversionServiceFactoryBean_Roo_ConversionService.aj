@@ -3,8 +3,7 @@
 
 package org.myorg.initial.roo.ui.web.mvc.controller.security;
 
-import org.myorg.initial.roo.core.domain.model.HomeAddress;
-import org.myorg.initial.roo.core.domain.model.OtherAddress;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.model.WorkAddress;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
@@ -17,50 +16,26 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
-    public Converter<HomeAddress, String> ApplicationConversionServiceFactoryBean.getHomeAddressToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.myorg.initial.roo.core.domain.model.HomeAddress, java.lang.String>() {
-            public String convert(HomeAddress homeAddress) {
-                return new StringBuilder().append(homeAddress.getAddress()).append(' ').append(homeAddress.getPostalCode()).append(' ').append(homeAddress.getPopulation()).append(' ').append(homeAddress.getAddresNumber()).toString();
+    public Converter<Person, String> ApplicationConversionServiceFactoryBean.getPersonToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<org.myorg.initial.roo.core.domain.model.Person, java.lang.String>() {
+            public String convert(Person person) {
+                return new StringBuilder().append(person.getFirstName()).append(' ').append(person.getLastName()).append(' ').append(person.getLastName2()).append(' ').append(person.getBirthDate()).toString();
             }
         };
     }
     
-    public Converter<Long, HomeAddress> ApplicationConversionServiceFactoryBean.getIdToHomeAddressConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.model.HomeAddress>() {
-            public org.myorg.initial.roo.core.domain.model.HomeAddress convert(java.lang.Long id) {
-                return HomeAddress.findHomeAddress(id);
+    public Converter<Long, Person> ApplicationConversionServiceFactoryBean.getIdToPersonConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.model.Person>() {
+            public org.myorg.initial.roo.core.domain.model.Person convert(java.lang.Long id) {
+                return Person.findPerson(id);
             }
         };
     }
     
-    public Converter<String, HomeAddress> ApplicationConversionServiceFactoryBean.getStringToHomeAddressConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.myorg.initial.roo.core.domain.model.HomeAddress>() {
-            public org.myorg.initial.roo.core.domain.model.HomeAddress convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), HomeAddress.class);
-            }
-        };
-    }
-    
-    public Converter<OtherAddress, String> ApplicationConversionServiceFactoryBean.getOtherAddressToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.myorg.initial.roo.core.domain.model.OtherAddress, java.lang.String>() {
-            public String convert(OtherAddress otherAddress) {
-                return new StringBuilder().append(otherAddress.getAddress()).append(' ').append(otherAddress.getPostalCode()).append(' ').append(otherAddress.getPopulation()).append(' ').append(otherAddress.getAddresNumber()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, OtherAddress> ApplicationConversionServiceFactoryBean.getIdToOtherAddressConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.model.OtherAddress>() {
-            public org.myorg.initial.roo.core.domain.model.OtherAddress convert(java.lang.Long id) {
-                return OtherAddress.findOtherAddress(id);
-            }
-        };
-    }
-    
-    public Converter<String, OtherAddress> ApplicationConversionServiceFactoryBean.getStringToOtherAddressConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.myorg.initial.roo.core.domain.model.OtherAddress>() {
-            public org.myorg.initial.roo.core.domain.model.OtherAddress convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), OtherAddress.class);
+    public Converter<String, Person> ApplicationConversionServiceFactoryBean.getStringToPersonConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.myorg.initial.roo.core.domain.model.Person>() {
+            public org.myorg.initial.roo.core.domain.model.Person convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Person.class);
             }
         };
     }
@@ -138,12 +113,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getHomeAddressToStringConverter());
-        registry.addConverter(getIdToHomeAddressConverter());
-        registry.addConverter(getStringToHomeAddressConverter());
-        registry.addConverter(getOtherAddressToStringConverter());
-        registry.addConverter(getIdToOtherAddressConverter());
-        registry.addConverter(getStringToOtherAddressConverter());
+        registry.addConverter(getPersonToStringConverter());
+        registry.addConverter(getIdToPersonConverter());
+        registry.addConverter(getStringToPersonConverter());
         registry.addConverter(getWorkAddressToStringConverter());
         registry.addConverter(getIdToWorkAddressConverter());
         registry.addConverter(getStringToWorkAddressConverter());

@@ -8,5 +8,6 @@
         <field:display field="enabled" id="s_org_myorg_initial_roo_core_domain_security_Principal_enabled" object="${principal}" z="PbrtMIx3k9QtLR4PKYUgFTQrwp0="/>
         <field:display field="activationKey" id="s_org_myorg_initial_roo_core_domain_security_Principal_activationKey" object="${principal}" z="jIzafKXBxxUf58HMsWDSzE58dSA="/>
         <field:display field="roles" id="s_org_myorg_initial_roo_core_domain_security_Principal_roles" object="${principal}" z="4ci4WcEmH+53gmrYWln8xtvAefQ="/>
+        <field:display field="person" id="s_org_myorg_initial_roo_core_domain_security_Principal_person" object="${principal}" z="QHU6HMLmuu+FER7X1DrxeMsfARA="/>
     </page:show>
 </div>

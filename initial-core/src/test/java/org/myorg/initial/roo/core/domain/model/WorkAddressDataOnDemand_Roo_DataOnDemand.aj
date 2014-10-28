@@ -10,12 +10,14 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.model.WorkAddress;
 import org.myorg.initial.roo.core.domain.model.WorkAddressDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
@@ -25,6 +27,9 @@ privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
     private Random WorkAddressDataOnDemand.rnd = new SecureRandom();
     
     private List<WorkAddress> WorkAddressDataOnDemand.data;
+    
+    @Autowired
+    PersonDataOnDemand WorkAddressDataOnDemand.personDataOnDemand;
     
     public WorkAddress WorkAddressDataOnDemand.getNewTransientWorkAddress(int index) {
         WorkAddress obj = new WorkAddress();

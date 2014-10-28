@@ -4,6 +4,7 @@
 package org.myorg.initial.roo.core.domain.model;
 
 import org.myorg.initial.roo.core.domain.model.GeneralAddress;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
@@ -73,6 +74,14 @@ privileged aspect GeneralAddress_Roo_JavaBean {
     
     public void GeneralAddress.setAddresNumber(String addresNumber) {
         this.addresNumber = addresNumber;
+    }
+    
+    public Person GeneralAddress.getPerson() {
+        return this.person;
+    }
+    
+    public void GeneralAddress.setPerson(Person person) {
+        this.person = person;
     }
     
 }

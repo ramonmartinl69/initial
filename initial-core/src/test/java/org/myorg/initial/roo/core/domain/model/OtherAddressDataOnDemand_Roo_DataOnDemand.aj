@@ -12,10 +12,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.myorg.initial.roo.core.domain.model.OtherAddress;
 import org.myorg.initial.roo.core.domain.model.OtherAddressDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
@@ -25,6 +27,9 @@ privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
     private Random OtherAddressDataOnDemand.rnd = new SecureRandom();
     
     private List<OtherAddress> OtherAddressDataOnDemand.data;
+    
+    @Autowired
+    PersonDataOnDemand OtherAddressDataOnDemand.personDataOnDemand;
     
     public OtherAddress OtherAddressDataOnDemand.getNewTransientOtherAddress(int index) {
         OtherAddress obj = new OtherAddress();

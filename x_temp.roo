@@ -8,37 +8,32 @@
 //
 
 module focus --moduleName initial-core
-//GeneralAddress Hierarchy
-entity jpa --class ~.domain.model.GeneralAddress --serializable --abstract --identifierColumn id_address --versionColumn OPT_LOCK --table address --inheritanceType SINGLE_TABLE
-field enum --fieldName addressType --type ~.domain.reference.AddressTypeEnum  --notNull
-field enum --fieldName locationType --type ~.domain.reference.AddresLocationTypeEnum  --notNull
-field string --fieldName address --notNull --sizeMax 250 --sizeMin 3
-field enum --fieldName country --type ~.domain.reference.CountryEnum 
-field enum --fieldName province --type ~.domain.reference.ProvinceEnum  --notNull
-field string --fieldName postalCode --notNull --sizeMax 10 --sizeMin 3 --regexp .*\d.*
-field string --fieldName population --notNull --sizeMax 250 --sizeMin 3 
-field string --fieldName addresNumber --notNull --sizeMax 250 --sizeMin 1
-//field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
-equals --class ~.domain.model.GeneralAddress --excludeFields "addressType locationType address country province postalCode population addresNumber"
-
-//HomeAddress (Principal & Secondary)
-entity jpa --class ~.domain.model.HomeAddress --extends ~.domain.model.GeneralAddress --testAutomatically
-
-//WorkAddress
-entity jpa --class ~.domain.model.WorkAddress --extends ~.domain.model.GeneralAddress --testAutomatically
-field string --fieldName enterpriseName --notNull --sizeMax 250 --sizeMin 3 
-field string --fieldName postalAddress --notNull --sizeMax 250 --sizeMin 3
-
-//OtherAddress
-entity jpa --class ~.domain.model.OtherAddress --extends ~.domain.model.GeneralAddress --testAutomatically
-field boolean --fieldName active
+//Person
+entity jpa --class ~.domain.model.Person --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table person --testAutomatically  --activeRecord true
+field string --fieldName firstName --notNull --sizeMax 50 --sizeMin 1
+field string --fieldName lastName --notNull --sizeMax 50 --sizeMin 1
+field string --fieldName lastName2 --notNull --sizeMax 50 --sizeMin 1
+field date --fieldName birthDate --type java.util.Date --dateFormat MEDIUM --notNull
+field enum --fieldName nationality --type ~.domain.reference.CountryEnum 
+field string --fieldName nIF --notNull --sizeMax 15 --sizeMin 9 --regexp  ([X-Z]{1}\d{7}[A-Z]{1})|(\d{8}[A-Z]{1})
+field file --fieldName photoFile --contentType JPG
+field string --fieldName phone --sizeMax 15 --sizeMin 3 --notNull --regexp .*\d.*	
+field enum --fieldName question --type ~.domain.reference.SemanticQuestionEnum
+field string --fieldName response --sizeMax 100 --sizeMin 3
+field string --fieldName alternateQuestion --sizeMax 100 --sizeMin 3
+field string --fieldName alternateResponse --sizeMax 100 --sizeMin 3
+field reference --fieldName principal --type ~.domain.security.Principal --cardinality ONE_TO_ONE
+field list --fieldName addresses --type ~.domain.model.GeneralAddress --cardinality ONE_TO_MANY --mappedBy person --fetch LAZY
+equals --class ~.domain.model.Person --excludeFields "id firstName lastName lastName2 birthDate nationality photoFile phone question response alternateQuestion alternateResponse actKey principal addresses"
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.model.GeneralAddress
+field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+//Bidirecional Association with GeneralAddress
+focus --class ~.domain.security.Principal
+field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person
 
 module focus --moduleName initial-ui/initial-mvc
-web mvc scaffold --class ~.controller.model.HomeAddressController --backingType initial-core|~.domain.model.HomeAddress --path /homeaddresses
-web mvc scaffold --class ~.controller.model.WorkAddressController --backingType initial-core|~.domain.model.WorkAddress --path /workaddresses
-web mvc scaffold --class ~.controller.model.OtherAddressController --backingType initial-core|~.domain.model.OtherAddress --path /otheraddresses
+web mvc scaffold --class ~.controller.model.PersonController --backingType initial-core|~.domain.model.Person --path /persons
 
 module focus --moduleName initial-ui/initial-jsf
-web jsf scaffold --class ~.controller.model.HomeAddressBean --entity initial-core|~.domain.model.HomeAddress
-web jsf scaffold --class ~.controller.model.WorkAddressBean --entity initial-core|~.domain.model.WorkAddress
-web jsf scaffold --class ~.controller.model.OtherAddressBean --entity initial-core|~.domain.model.OtherAddress
+web jsf scaffold --class ~.controller.model.PersonBean --entity initial-core|~.domain.model.Person

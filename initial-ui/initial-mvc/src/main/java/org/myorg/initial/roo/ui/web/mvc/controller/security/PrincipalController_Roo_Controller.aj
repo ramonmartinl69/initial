@@ -6,6 +6,7 @@ package org.myorg.initial.roo.ui.web.mvc.controller.security;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.ui.web.mvc.controller.security.PrincipalController;
@@ -87,6 +88,7 @@ privileged aspect PrincipalController_Roo_Controller {
     
     void PrincipalController.populateEditForm(Model uiModel, Principal principal) {
         uiModel.addAttribute("principal", principal);
+        uiModel.addAttribute("people", Person.findAllPeople());
         uiModel.addAttribute("authroles", AuthRole.findAllAuthRoles());
     }
     

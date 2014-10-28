@@ -14,7 +14,7 @@ privileged aspect GeneralAddress_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager GeneralAddress.entityManager;
     
-    public static final List<String> GeneralAddress.fieldNames4OrderClauseFilter = java.util.Arrays.asList("addressType", "locationType", "address", "country", "province", "postalCode", "population", "addresNumber");
+    public static final List<String> GeneralAddress.fieldNames4OrderClauseFilter = java.util.Arrays.asList("addressType", "locationType", "address", "country", "province", "postalCode", "population", "addresNumber", "person");
     
     public static final EntityManager GeneralAddress.entityManager() {
         EntityManager em = new GeneralAddress() {
