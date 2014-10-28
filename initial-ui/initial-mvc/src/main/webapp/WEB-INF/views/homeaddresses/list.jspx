@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_myorg_initial_roo_core_domain_model_HomeAddress" items="${homeaddresses}" z="QuDC3LAKaUF5Sd+uINnMaSVqapY=">
+        <table:table data="${homeaddresses}" id="l_org_myorg_initial_roo_core_domain_model_HomeAddress" path="/homeaddresses" z="HCLV8gvOvGTGav7DJCurbJ6ctNU=">
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_addressType" property="addressType" z="siOljnol5C8iOcOr/49NbHMqrfA="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_locationType" property="locationType" z="Ck+kuxd509gR4QZ4NTdks5AO9Iw="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_address" property="address" z="vLRPWO84fFNw3vdS6iXrhMjfvgo="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_country" property="country" z="ADapTtRfpJeZ6kC3oxYZtMbDqZo="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_province" property="province" z="2u5Dh8qIfSfTVfQHxJfu1nOggkk="/>
+            <table:column id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_postalCode" property="postalCode" z="Zn/+eiwUt1Sm5uGUCJ4nrarMRLQ="/>
+        </table:table>
+    </page:list>
+</div>

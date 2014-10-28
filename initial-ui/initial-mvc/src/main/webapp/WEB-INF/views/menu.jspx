@@ -11,5 +11,17 @@
             <menu:item id="i_principal_new" messageCode="global_menu_new" url="/principals?form" z="DOoyVyLEkO4c5ju9xLJqocjPDSY="/>
             <menu:item id="i_principal_list" messageCode="global_menu_list" url="/principals?page=1&amp;size=${empty param.size ? 10 : param.size}" z="tU1vqoorvagX9OGfFVp/QwtkPWg="/>
         </menu:category>
+        <menu:category id="c_homeaddress" z="oJpuKzXhWEcrVr7vqlwDeh5aV9c=">
+            <menu:item id="i_homeaddress_new" messageCode="global_menu_new" url="/homeaddresses?form" z="p4fjnhoGvGeIKs/fUCP4y2+QrE8="/>
+            <menu:item id="i_homeaddress_list" messageCode="global_menu_list" url="/homeaddresses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="O7wme8Y5qdOi8AGAwC84WsBatN8="/>
+        </menu:category>
+        <menu:category id="c_workaddress" z="zxRbqnJfp8UJ5g3dwPq3y4h90m4=">
+            <menu:item id="i_workaddress_new" messageCode="global_menu_new" url="/workaddresses?form" z="2fWCTHtBowWO8cXrLAUm8/mMQZ4="/>
+            <menu:item id="i_workaddress_list" messageCode="global_menu_list" url="/workaddresses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fAy+tCHMoVfvaosRCvszqkKxdPA="/>
+        </menu:category>
+        <menu:category id="c_otheraddress" z="NTj7EE9Nq91PhYJC/5oi8JjWB4c=">
+            <menu:item id="i_otheraddress_new" messageCode="global_menu_new" url="/otheraddresses?form" z="KkSuBYP4jChZUVcv6HOzULPuREo="/>
+            <menu:item id="i_otheraddress_list" messageCode="global_menu_list" url="/otheraddresses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6iiYp/PHWUcA/zy3NJP6dGQOS0E="/>
+        </menu:category>
     </menu:menu>
 </div>

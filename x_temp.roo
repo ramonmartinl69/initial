@@ -6,3 +6,39 @@
 // TO INSTALL: mvn clean install -D.maven.test.skip=true
 // �� IF ANY COMMAND OR SCRIPT FAILS TO EXECUTE, REMOVE C:\spring-roo-1.2.5.RELEASE\cache\ !!
 //
+
+module focus --moduleName initial-core
+//GeneralAddress Hierarchy
+entity jpa --class ~.domain.model.GeneralAddress --serializable --abstract --identifierColumn id_address --versionColumn OPT_LOCK --table address --inheritanceType SINGLE_TABLE
+field enum --fieldName addressType --type ~.domain.reference.AddressTypeEnum  --notNull
+field enum --fieldName locationType --type ~.domain.reference.AddresLocationTypeEnum  --notNull
+field string --fieldName address --notNull --sizeMax 250 --sizeMin 3
+field enum --fieldName country --type ~.domain.reference.CountryEnum 
+field enum --fieldName province --type ~.domain.reference.ProvinceEnum  --notNull
+field string --fieldName postalCode --notNull --sizeMax 10 --sizeMin 3 --regexp .*\d.*
+field string --fieldName population --notNull --sizeMax 250 --sizeMin 3 
+field string --fieldName addresNumber --notNull --sizeMax 250 --sizeMin 1
+//field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
+equals --class ~.domain.model.GeneralAddress --excludeFields "addressType locationType address country province postalCode population addresNumber"
+
+//HomeAddress (Principal & Secondary)
+entity jpa --class ~.domain.model.HomeAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+
+//WorkAddress
+entity jpa --class ~.domain.model.WorkAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+field string --fieldName enterpriseName --notNull --sizeMax 250 --sizeMin 3 
+field string --fieldName postalAddress --notNull --sizeMax 250 --sizeMin 3
+
+//OtherAddress
+entity jpa --class ~.domain.model.OtherAddress --extends ~.domain.model.GeneralAddress --testAutomatically
+field boolean --fieldName active
+
+module focus --moduleName initial-ui/initial-mvc
+web mvc scaffold --class ~.controller.model.HomeAddressController --backingType initial-core|~.domain.model.HomeAddress --path /homeaddresses
+web mvc scaffold --class ~.controller.model.WorkAddressController --backingType initial-core|~.domain.model.WorkAddress --path /workaddresses
+web mvc scaffold --class ~.controller.model.OtherAddressController --backingType initial-core|~.domain.model.OtherAddress --path /otheraddresses
+
+module focus --moduleName initial-ui/initial-jsf
+web jsf scaffold --class ~.controller.model.HomeAddressBean --entity initial-core|~.domain.model.HomeAddress
+web jsf scaffold --class ~.controller.model.WorkAddressBean --entity initial-core|~.domain.model.WorkAddress
+web jsf scaffold --class ~.controller.model.OtherAddressBean --entity initial-core|~.domain.model.OtherAddress

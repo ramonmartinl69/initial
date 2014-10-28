@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_myorg_initial_roo_core_domain_model_WorkAddress" object="${workaddress}" path="/workaddresses" z="POMpHA7gV+8lQzFuH4+x6twtDdQ=">
+        <field:display field="addressType" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_addressType" object="${workaddress}" z="EUzf4BRV8jvS8FR0ehqze3Z8xJ0="/>
+        <field:display field="locationType" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_locationType" object="${workaddress}" z="fDm/VEYxQFn1eHe+us0oXWqv0qY="/>
+        <field:display field="address" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_address" object="${workaddress}" z="gZE9cUotBUPjzmziHHB7WruYBqM="/>
+        <field:display field="country" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_country" object="${workaddress}" z="wz3AC16wRumHjvdx3BlffIod+M0="/>
+        <field:display field="province" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_province" object="${workaddress}" z="zU+JRbSEUEmFwhLv6lvdsw9A88g="/>
+        <field:display field="postalCode" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode" object="${workaddress}" z="O5h7Uu12uBRpZJAKopxNh8Ib49o="/>
+        <field:display field="population" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_population" object="${workaddress}" z="65Mr+iD3+B7p8Gzl7wPLXQfw6iU="/>
+        <field:display field="addresNumber" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber" object="${workaddress}" z="T/tV+BilkbW4ul2tWw0SIvs/N/k="/>
+        <field:display field="enterpriseName" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName" object="${workaddress}" z="hBbslR91QBD01vRO6bq+SELJGJo="/>
+        <field:display field="postalAddress" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress" object="${workaddress}" z="des+ggUJacMvqY9FJfWBHmjveNE="/>
+    </page:show>
+</div>
