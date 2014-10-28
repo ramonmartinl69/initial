@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_myorg_initial_roo_core_domain_security_AuthRole" modelAttribute="authRole" path="/roles" versionField="Version" z="Lr4EWro02R9XaaiFwUKa40kvyCg=">
+        <field:select field="authority" id="c_org_myorg_initial_roo_core_domain_security_AuthRole_authority" items="${securityroleenums}" path="securityroleenums" required="true" z="OXC61y4LdOPISou7ml0NgB7E5Vg="/>
+        <field:textarea field="roleName" id="c_org_myorg_initial_roo_core_domain_security_AuthRole_roleName" required="true" z="NfC5TcDvSQ/QcoEBEP1oXU5lMEM="/>
+    </form:update>
+</div>

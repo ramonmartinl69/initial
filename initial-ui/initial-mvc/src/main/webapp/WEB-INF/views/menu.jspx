@@ -1,5 +1,11 @@
-<div id="menu" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-	<jsp:directive.page contentType="text/html;charset=UTF-8" />
-	<jsp:output omit-xml-declaration="yes"/>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_authrole" z="ZlWmebafuyPTmbpQAHqkXeQDbQo=">
+            <menu:item id="i_authrole_new" messageCode="global_menu_new" url="/roles?form" z="e0nNh5PmCp3kAtsTndJnCO5hTrA="/>
+            <menu:item id="i_authrole_list" messageCode="global_menu_list" url="/roles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dGxqhUp54W8aBD0WE2rhRUQv4Uo="/>
+        </menu:category>
+    </menu:menu>
 </div>
