@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_myorg_initial_roo_core_domain_security_Principal" object="${principal}" path="/principals" z="kHMXWleJPz5jbRY7PyRGYSNJYTk=">
+        <field:display field="userName" id="s_org_myorg_initial_roo_core_domain_security_Principal_userName" object="${principal}" z="swjW72InwFsABqAcsNgf+m7X8aY="/>
+        <field:display field="password" id="s_org_myorg_initial_roo_core_domain_security_Principal_password" object="${principal}" z="MUqABkyoe2ahWR+L0ZFxVMX48Z8="/>
+        <field:display field="enabled" id="s_org_myorg_initial_roo_core_domain_security_Principal_enabled" object="${principal}" z="PbrtMIx3k9QtLR4PKYUgFTQrwp0="/>
+        <field:display field="activationKey" id="s_org_myorg_initial_roo_core_domain_security_Principal_activationKey" object="${principal}" z="jIzafKXBxxUf58HMsWDSzE58dSA="/>
+        <field:display field="roles" id="s_org_myorg_initial_roo_core_domain_security_Principal_roles" object="${principal}" z="4ci4WcEmH+53gmrYWln8xtvAefQ="/>
+    </page:show>
+</div>

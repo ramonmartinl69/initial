@@ -57,6 +57,29 @@ privileged aspect ApplicationBean_Roo_ApplicationBean {
         item.setUpdate(":dataForm:data");
         submenu.getChildren().add(item);
         menuModel.addSubmenu(submenu);
+        
+        submenu = new Submenu();
+        submenu.setId("principalSubmenu");
+        submenu.setLabel("Principal");
+        item = new MenuItem();
+        item.setId("createPrincipalMenuItem");
+        item.setValueExpression("value", expressionFactory.createValueExpression(elContext, "#{messages.label_create}", String.class));
+        item.setActionExpression(expressionFactory.createMethodExpression(elContext, "#{principalBean.displayCreateDialog}", String.class, new Class[0]));
+        item.setIcon("ui-icon ui-icon-document");
+        item.setAjax(false);
+        item.setAsync(false);
+        item.setUpdate(":dataForm:data");
+        submenu.getChildren().add(item);
+        item = new MenuItem();
+        item.setId("listPrincipalMenuItem");
+        item.setValueExpression("value", expressionFactory.createValueExpression(elContext, "#{messages.label_list}", String.class));
+        item.setActionExpression(expressionFactory.createMethodExpression(elContext, "#{principalBean.displayList}", String.class, new Class[0]));
+        item.setIcon("ui-icon ui-icon-folder-open");
+        item.setAjax(false);
+        item.setAsync(false);
+        item.setUpdate(":dataForm:data");
+        submenu.getChildren().add(item);
+        menuModel.addSubmenu(submenu);
     }
     
     public MenuModel ApplicationBean.getMenuModel() {

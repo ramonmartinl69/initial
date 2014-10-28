@@ -7,5 +7,9 @@
             <menu:item id="i_authrole_new" messageCode="global_menu_new" url="/roles?form" z="e0nNh5PmCp3kAtsTndJnCO5hTrA="/>
             <menu:item id="i_authrole_list" messageCode="global_menu_list" url="/roles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dGxqhUp54W8aBD0WE2rhRUQv4Uo="/>
         </menu:category>
+        <menu:category id="c_principal" z="FnLFWXB/U5tWagL29D8k2ZPp4KM=">
+            <menu:item id="i_principal_new" messageCode="global_menu_new" url="/principals?form" z="DOoyVyLEkO4c5ju9xLJqocjPDSY="/>
+            <menu:item id="i_principal_list" messageCode="global_menu_list" url="/principals?page=1&amp;size=${empty param.size ? 10 : param.size}" z="tU1vqoorvagX9OGfFVp/QwtkPWg="/>
+        </menu:category>
     </menu:menu>
 </div>

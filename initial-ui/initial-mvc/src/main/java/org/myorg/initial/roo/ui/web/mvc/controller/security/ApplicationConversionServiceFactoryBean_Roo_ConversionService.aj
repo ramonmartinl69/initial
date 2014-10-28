@@ -4,6 +4,7 @@
 package org.myorg.initial.roo.ui.web.mvc.controller.security;
 
 import org.myorg.initial.roo.core.domain.security.AuthRole;
+import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.ui.web.mvc.controller.security.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -37,10 +38,37 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Principal, String> ApplicationConversionServiceFactoryBean.getPrincipalToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<org.myorg.initial.roo.core.domain.security.Principal, java.lang.String>() {
+            public String convert(Principal principal) {
+                return new StringBuilder().append(principal.getUserName()).append(' ').append(principal.getPassword()).append(' ').append(principal.getActivationKey()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Principal> ApplicationConversionServiceFactoryBean.getIdToPrincipalConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.security.Principal>() {
+            public org.myorg.initial.roo.core.domain.security.Principal convert(java.lang.Long id) {
+                return Principal.findPrincipal(id);
+            }
+        };
+    }
+    
+    public Converter<String, Principal> ApplicationConversionServiceFactoryBean.getStringToPrincipalConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, org.myorg.initial.roo.core.domain.security.Principal>() {
+            public org.myorg.initial.roo.core.domain.security.Principal convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Principal.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getAuthRoleToStringConverter());
         registry.addConverter(getIdToAuthRoleConverter());
         registry.addConverter(getStringToAuthRoleConverter());
+        registry.addConverter(getPrincipalToStringConverter());
+        registry.addConverter(getIdToPrincipalConverter());
+        registry.addConverter(getStringToPrincipalConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
