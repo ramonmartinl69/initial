@@ -4,7 +4,7 @@
 // roo> script --file C:\Users\Ramon\WKSPC_INITIAL\initial\initial.roo (Invoke the Script from within the Roo shell)
 // TO IMPORT TO ECLIPSE: mvn eclipse:clean eclipse:eclipse
 // TO INSTALL: mvn clean install -D.maven.test.skip=true
-// ¡¡ IF ANY COMMAND OR SCRIPT FAILS TO EXECUTE, REMOVE C:\spring-roo-1.2.5.RELEASE\cache\ !!
+// ï¿½ï¿½ IF ANY COMMAND OR SCRIPT FAILS TO EXECUTE, REMOVE C:\spring-roo-1.2.5.RELEASE\cache\ !!
 //
 
 //Create parent folder manually first (mkdir initial)
@@ -74,6 +74,8 @@ database properties list
 module focus --moduleName initial-ui/initial-mvc
 web mvc setup
 web mvc language --code es
+module focus --moduleName initial-ui/initial-web
+web mvc setup
 // Setup JSF UI
 module focus --moduleName initial-ui/initial-jsf
 web jsf setup --theme SOUTH_STREET
