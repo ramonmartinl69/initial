@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_myorg_initial_roo_core_domain_security_AuthRole" object="${authrole}" path="/roles" z="JlNVWn0gmgG9NiRSTJ+ye8KVU5c=">
-        <field:display field="authority" id="s_org_myorg_initial_roo_core_domain_security_AuthRole_authority" object="${authrole}" z="dvC4otu0lW8UKmYlOpcRmGUzsyQ="/>
-        <field:display field="roleName" id="s_org_myorg_initial_roo_core_domain_security_AuthRole_roleName" object="${authrole}" z="0Rvw4/bhlDyOyBQObRq0OBc+2Bc="/>
-    </page:show>
-</div>
