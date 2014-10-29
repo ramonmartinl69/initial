@@ -10,7 +10,9 @@ import javax.persistence.TypedQuery;
 import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AppQueryRepositoryImpl implements AppQueryRepository {
 	
 	@PersistenceContext
