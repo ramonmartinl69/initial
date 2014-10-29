@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.Principal;
 import org.myorg.initial.roo.core.domain.security.PrincipalDataOnDemand;
+import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,13 +26,14 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
     private List<Principal> PrincipalDataOnDemand.data;
     
     @Autowired
-    PersonDataOnDemand PrincipalDataOnDemand.personDataOnDemand;
+    PrincipalRepository PrincipalDataOnDemand.principalRepository;
     
     public Principal PrincipalDataOnDemand.getNewTransientPrincipal(int index) {
         Principal obj = new Principal();
         setActivationKey(obj, index);
         setEnabled(obj, index);
         setPassword(obj, index);
+        setPerson(obj, index);
         setUserName(obj, index);
         return obj;
     }
@@ -57,6 +59,11 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
         obj.setPassword(password);
     }
     
+    public void PrincipalDataOnDemand.setPerson(Principal obj, int index) {
+        Person person = null;
+        obj.setPerson(person);
+    }
+    
     public Principal PrincipalDataOnDemand.getSpecificPrincipal(int index) {
         init();
         if (index < 0) {
@@ -67,14 +74,14 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
         }
         Principal obj = data.get(index);
         Long id = obj.getId();
-        return Principal.findPrincipal(id);
+        return principalRepository.findOne(id);
     }
     
     public Principal PrincipalDataOnDemand.getRandomPrincipal() {
         init();
         Principal obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return Principal.findPrincipal(id);
+        return principalRepository.findOne(id);
     }
     
     public boolean PrincipalDataOnDemand.modifyPrincipal(Principal obj) {
@@ -84,7 +91,7 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
     public void PrincipalDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = Principal.findPrincipalEntries(from, to);
+        data = principalRepository.findAll(new org.springframework.data.domain.PageRequest(from / to, to)).getContent();
         if (data == null) {
             throw new IllegalStateException("Find entries implementation for 'Principal' illegally returned null");
         }
@@ -96,7 +103,7 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
         for (int i = 0; i < 10; i++) {
             Principal obj = getNewTransientPrincipal(i);
             try {
-                obj.persist();
+                principalRepository.save(obj);
             } catch (final ConstraintViolationException e) {
                 final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
@@ -105,7 +112,7 @@ privileged aspect PrincipalDataOnDemand_Roo_DataOnDemand {
                 }
                 throw new IllegalStateException(msg.toString(), e);
             }
-            obj.flush();
+            principalRepository.flush();
             data.add(obj);
         }
     }

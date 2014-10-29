@@ -12,12 +12,11 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.myorg.initial.roo.core.domain.model.HomeAddress;
 import org.myorg.initial.roo.core.domain.model.HomeAddressDataOnDemand;
-import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
@@ -28,9 +27,6 @@ privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
     
     private List<HomeAddress> HomeAddressDataOnDemand.data;
     
-    @Autowired
-    PersonDataOnDemand HomeAddressDataOnDemand.personDataOnDemand;
-    
     public HomeAddress HomeAddressDataOnDemand.getNewTransientHomeAddress(int index) {
         HomeAddress obj = new HomeAddress();
         setAddresNumber(obj, index);
@@ -38,6 +34,7 @@ privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
         setAddressType(obj, index);
         setCountry(obj, index);
         setLocationType(obj, index);
+        setPerson(obj, index);
         setPopulation(obj, index);
         setPostalCode(obj, index);
         setProvince(obj, index);
@@ -73,6 +70,11 @@ privileged aspect HomeAddressDataOnDemand_Roo_DataOnDemand {
     public void HomeAddressDataOnDemand.setLocationType(HomeAddress obj, int index) {
         AddresLocationTypeEnum locationType = AddresLocationTypeEnum.class.getEnumConstants()[0];
         obj.setLocationType(locationType);
+    }
+    
+    public void HomeAddressDataOnDemand.setPerson(HomeAddress obj, int index) {
+        Person person = null;
+        obj.setPerson(person);
     }
     
     public void HomeAddressDataOnDemand.setPopulation(HomeAddress obj, int index) {

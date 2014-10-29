@@ -18,6 +18,7 @@ import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.SemanticQuestionEnum;
 import org.myorg.initial.roo.core.domain.security.PrincipalDataOnDemand;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +32,9 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
     
     @Autowired
     PrincipalDataOnDemand PersonDataOnDemand.principalDataOnDemand;
+    
+    @Autowired
+    PersonRepository PersonDataOnDemand.personRepository;
     
     public Person PersonDataOnDemand.getNewTransientPerson(int index) {
         Person obj = new Person();
@@ -135,14 +139,14 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
         }
         Person obj = data.get(index);
         Long id = obj.getId();
-        return Person.findPerson(id);
+        return personRepository.findOne(id);
     }
     
     public Person PersonDataOnDemand.getRandomPerson() {
         init();
         Person obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return Person.findPerson(id);
+        return personRepository.findOne(id);
     }
     
     public boolean PersonDataOnDemand.modifyPerson(Person obj) {
@@ -152,7 +156,7 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
     public void PersonDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = Person.findPersonEntries(from, to);
+        data = personRepository.findAll(new org.springframework.data.domain.PageRequest(from / to, to)).getContent();
         if (data == null) {
             throw new IllegalStateException("Find entries implementation for 'Person' illegally returned null");
         }
@@ -164,7 +168,7 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
         for (int i = 0; i < 10; i++) {
             Person obj = getNewTransientPerson(i);
             try {
-                obj.persist();
+                personRepository.save(obj);
             } catch (final ConstraintViolationException e) {
                 final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
@@ -173,7 +177,7 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
                 }
                 throw new IllegalStateException(msg.toString(), e);
             }
-            obj.flush();
+            personRepository.flush();
             data.add(obj);
         }
     }

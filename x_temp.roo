@@ -7,12 +7,18 @@
 // �� IF ANY COMMAND OR SCRIPT FAILS TO EXECUTE, REMOVE C:\spring-roo-1.2.5.RELEASE\cache\ !!
 //
 
-//Scaffold finders
-module focus --moduleName initial-ui/initial-mvc
-//web mvc finder all
-web mvc finder add --formBackingType initial-core|~.domain.security.AuthRole --class ~.controller.security.AuthRoleController
-web mvc finder add --formBackingType initial-core|~.domain.security.Principal --class ~.controller.security.PrincipalController
-web mvc finder add --formBackingType initial-core|~.domain.model.HomeAddress --class ~.controller.model.HomeAddressController
-web mvc finder add --formBackingType initial-core|~.domain.model.WorkAddress --class ~.controller.model.WorkAddressController
-web mvc finder add --formBackingType initial-core|~.domain.model.OtherAddress --class ~.controller.model.OtherAddressController
-web mvc finder add --formBackingType initial-core|~.domain.model.Person --class ~.controller.model.PersonController
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file C:\Users\Ramon\WKSPC_INITIAL\initial\initial.roo (Invoke the Script from within the Roo shell)
+// JPA REPOSITORIES (LEAVE ACTIVE RECORD FIRST) (Do Aspect Weaving from Parent in the Roo Shell)
+//
+repository jpa --interface ~.repository.security.PrincipalRepository --entity ~.domain.security.Principal
+class --class ~.repository.security.PrincipalRepositoryImpl
+repository jpa --interface ~.repository.model.PersonRepository --entity ~.domain.model.Person
+class --class ~.repository.model.PersonRepositoryImpl
+interface --class ~.repository.AppQueryRepository
+class --class ~.repository.AppQueryRepositoryImpl
+
+// mvn eclipse:eclipse
+module focus --moduleName ~
+//perform eclipse

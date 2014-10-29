@@ -10,14 +10,13 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
+import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.model.WorkAddress;
 import org.myorg.initial.roo.core.domain.model.WorkAddressDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
@@ -28,9 +27,6 @@ privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
     
     private List<WorkAddress> WorkAddressDataOnDemand.data;
     
-    @Autowired
-    PersonDataOnDemand WorkAddressDataOnDemand.personDataOnDemand;
-    
     public WorkAddress WorkAddressDataOnDemand.getNewTransientWorkAddress(int index) {
         WorkAddress obj = new WorkAddress();
         setAddresNumber(obj, index);
@@ -39,6 +35,7 @@ privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
         setCountry(obj, index);
         setEnterpriseName(obj, index);
         setLocationType(obj, index);
+        setPerson(obj, index);
         setPopulation(obj, index);
         setPostalAddress(obj, index);
         setPostalCode(obj, index);
@@ -83,6 +80,11 @@ privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
     public void WorkAddressDataOnDemand.setLocationType(WorkAddress obj, int index) {
         AddresLocationTypeEnum locationType = AddresLocationTypeEnum.class.getEnumConstants()[0];
         obj.setLocationType(locationType);
+    }
+    
+    public void WorkAddressDataOnDemand.setPerson(WorkAddress obj, int index) {
+        Person person = null;
+        obj.setPerson(person);
     }
     
     public void WorkAddressDataOnDemand.setPopulation(WorkAddress obj, int index) {
