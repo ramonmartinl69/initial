@@ -24,8 +24,8 @@ import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.SemanticQuestionEnum;
 import org.myorg.initial.roo.core.domain.security.Principal;
-import org.myorg.initial.roo.core.repository.model.PersonRepository;
-import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
+import org.myorg.initial.roo.core.service.model.PersonService;
+import org.myorg.initial.roo.core.service.security.PrincipalService;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.PersonBean;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.converter.PrincipalConverter;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.util.MessageFactory;
@@ -52,10 +52,10 @@ privileged aspect PersonBean_Roo_ManagedBean {
     declare @type: PersonBean: @SessionScoped;
     
     @Autowired
-    PersonRepository PersonBean.personRepository;
+    PersonService PersonBean.personService;
     
     @Autowired
-    PrincipalRepository PersonBean.principalRepository;
+    PrincipalService PersonBean.principalService;
     
     private String PersonBean.name = "People";
     
@@ -102,7 +102,7 @@ privileged aspect PersonBean_Roo_ManagedBean {
     }
     
     public String PersonBean.findAllPeople() {
-        allPeople = personRepository.findAll();
+        allPeople = personService.findAllPeople();
         dataVisible = !allPeople.isEmpty();
         return null;
     }
@@ -994,7 +994,7 @@ privileged aspect PersonBean_Roo_ManagedBean {
     
     public List<Principal> PersonBean.completePrincipal(String query) {
         List<Principal> suggestions = new ArrayList<Principal>();
-        for (Principal principal : principalRepository.findAll()) {
+        for (Principal principal : principalService.findAllPrincipals()) {
             String principalStr = String.valueOf(principal.getUserName() +  " "  + principal.getPassword() +  " "  + principal.getActivationKey());
             if (principalStr.toLowerCase().startsWith(query.toLowerCase())) {
                 suggestions.add(principal);
@@ -1030,10 +1030,10 @@ privileged aspect PersonBean_Roo_ManagedBean {
     public String PersonBean.persist() {
         String message = "";
         if (person.getId() != null) {
-            personRepository.save(person);
+            personService.updatePerson(person);
             message = "message_successfully_updated";
         } else {
-            personRepository.save(person);
+            personService.savePerson(person);
             message = "message_successfully_created";
         }
         RequestContext context = RequestContext.getCurrentInstance();
@@ -1047,7 +1047,7 @@ privileged aspect PersonBean_Roo_ManagedBean {
     }
     
     public String PersonBean.delete() {
-        personRepository.delete(person);
+        personService.deletePerson(person);
         FacesMessage facesMessage = MessageFactory.getMessage("message_successfully_deleted", "Person");
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         reset();

@@ -12,7 +12,7 @@ import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
-import org.myorg.initial.roo.core.repository.model.PersonRepository;
+import org.myorg.initial.roo.core.service.model.PersonService;
 import org.myorg.initial.roo.ui.web.mvc.controller.model.HomeAddressController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ import org.springframework.web.util.WebUtils;
 privileged aspect HomeAddressController_Roo_Controller {
     
     @Autowired
-    PersonRepository HomeAddressController.personRepository;
+    PersonService HomeAddressController.personService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String HomeAddressController.create(@Valid HomeAddress homeAddress, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -96,7 +96,7 @@ privileged aspect HomeAddressController_Roo_Controller {
     
     void HomeAddressController.populateEditForm(Model uiModel, HomeAddress homeAddress) {
         uiModel.addAttribute("homeAddress", homeAddress);
-        uiModel.addAttribute("people", personRepository.findAll());
+        uiModel.addAttribute("people", personService.findAllPeople());
         uiModel.addAttribute("addreslocationtypeenums", Arrays.asList(AddresLocationTypeEnum.values()));
         uiModel.addAttribute("addresstypeenums", Arrays.asList(AddressTypeEnum.values()));
         uiModel.addAttribute("countryenums", Arrays.asList(CountryEnum.values()));

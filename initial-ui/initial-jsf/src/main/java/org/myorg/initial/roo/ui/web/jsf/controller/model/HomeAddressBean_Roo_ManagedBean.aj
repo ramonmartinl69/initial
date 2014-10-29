@@ -22,7 +22,7 @@ import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
-import org.myorg.initial.roo.core.repository.model.PersonRepository;
+import org.myorg.initial.roo.core.service.model.PersonService;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.HomeAddressBean;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.util.MessageFactory;
@@ -42,7 +42,7 @@ privileged aspect HomeAddressBean_Roo_ManagedBean {
     declare @type: HomeAddressBean: @SessionScoped;
     
     @Autowired
-    PersonRepository HomeAddressBean.personRepository;
+    PersonService HomeAddressBean.personService;
     
     private String HomeAddressBean.name = "HomeAddresses";
     
@@ -699,7 +699,7 @@ privileged aspect HomeAddressBean_Roo_ManagedBean {
     
     public List<Person> HomeAddressBean.completePerson(String query) {
         List<Person> suggestions = new ArrayList<Person>();
-        for (Person person : personRepository.findAll()) {
+        for (Person person : personService.findAllPeople()) {
             String personStr = String.valueOf(person.getFirstName() +  " "  + person.getLastName() +  " "  + person.getLastName2() +  " "  + person.getBirthDate());
             if (personStr.toLowerCase().startsWith(query.toLowerCase())) {
                 suggestions.add(person);

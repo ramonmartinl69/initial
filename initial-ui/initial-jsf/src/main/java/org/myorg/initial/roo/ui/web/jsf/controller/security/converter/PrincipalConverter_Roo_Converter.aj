@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import org.myorg.initial.roo.core.domain.security.Principal;
-import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
+import org.myorg.initial.roo.core.service.security.PrincipalService;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.converter.PrincipalConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,14 +19,14 @@ privileged aspect PrincipalConverter_Roo_Converter {
     declare @type: PrincipalConverter: @FacesConverter("org.myorg.initial.roo.ui.web.jsf.controller.security.converter.PrincipalConverter");
     
     @Autowired
-    PrincipalRepository PrincipalConverter.principalRepository;
+    PrincipalService PrincipalConverter.principalService;
     
     public Object PrincipalConverter.getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null || value.length() == 0) {
             return null;
         }
         Long id = Long.parseLong(value);
-        return principalRepository.findOne(id);
+        return principalService.findPrincipal(id);
     }
     
     public String PrincipalConverter.getAsString(FacesContext context, UIComponent component, Object value) {

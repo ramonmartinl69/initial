@@ -12,8 +12,8 @@ import org.myorg.initial.roo.core.domain.model.GeneralAddress;
 import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.SemanticQuestionEnum;
-import org.myorg.initial.roo.core.repository.model.PersonRepository;
-import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
+import org.myorg.initial.roo.core.service.model.PersonService;
+import org.myorg.initial.roo.core.service.security.PrincipalService;
 import org.myorg.initial.roo.ui.web.mvc.controller.model.PersonController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -29,10 +29,10 @@ import org.springframework.web.util.WebUtils;
 privileged aspect PersonController_Roo_Controller {
     
     @Autowired
-    PersonRepository PersonController.personRepository;
+    PersonService PersonController.personService;
     
     @Autowired
-    PrincipalRepository PersonController.principalRepository;
+    PrincipalService PersonController.principalService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String PersonController.create(@Valid Person person, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -41,7 +41,7 @@ privileged aspect PersonController_Roo_Controller {
             return "persons/create";
         }
         uiModel.asMap().clear();
-        personRepository.save(person);
+        personService.savePerson(person);
         return "redirect:/persons/" + encodeUrlPathSegment(person.getId().toString(), httpServletRequest);
     }
     
@@ -54,7 +54,7 @@ privileged aspect PersonController_Roo_Controller {
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String PersonController.show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("person", personRepository.findOne(id));
+        uiModel.addAttribute("person", personService.findPerson(id));
         uiModel.addAttribute("itemId", id);
         return "persons/show";
     }
@@ -64,11 +64,11 @@ privileged aspect PersonController_Roo_Controller {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("people", personRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
-            float nrOfPages = (float) personRepository.count() / sizeNo;
+            uiModel.addAttribute("people", personService.findPersonEntries(firstResult, sizeNo));
+            float nrOfPages = (float) personService.countAllPeople() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("people", personRepository.findAll());
+            uiModel.addAttribute("people", personService.findAllPeople());
         }
         addDateTimeFormatPatterns(uiModel);
         return "persons/list";
@@ -81,20 +81,20 @@ privileged aspect PersonController_Roo_Controller {
             return "persons/update";
         }
         uiModel.asMap().clear();
-        personRepository.save(person);
+        personService.updatePerson(person);
         return "redirect:/persons/" + encodeUrlPathSegment(person.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String PersonController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, personRepository.findOne(id));
+        populateEditForm(uiModel, personService.findPerson(id));
         return "persons/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String PersonController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Person person = personRepository.findOne(id);
-        personRepository.delete(person);
+        Person person = personService.findPerson(id);
+        personService.deletePerson(person);
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
@@ -111,7 +111,7 @@ privileged aspect PersonController_Roo_Controller {
         uiModel.addAttribute("generaladdresses", GeneralAddress.findAllGeneralAddresses());
         uiModel.addAttribute("countryenums", Arrays.asList(CountryEnum.values()));
         uiModel.addAttribute("semanticquestionenums", Arrays.asList(SemanticQuestionEnum.values()));
-        uiModel.addAttribute("principals", principalRepository.findAll());
+        uiModel.addAttribute("principals", principalService.findAllPrincipals());
     }
     
     String PersonController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
