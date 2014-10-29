@@ -13,5 +13,6 @@
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber" required="true" z="oLALSZPviudH8yS2oMEGR6XRnvI="/>
         <field:textarea field="enterpriseName" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName" required="true" z="MhNR07YlWnk3W4ux1RRxjXUzFYc="/>
         <field:textarea field="postalAddress" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress" required="true" z="xoUWqmABqAjUgYQpRLxL3k7vhMI="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_person" itemValue="id" items="${people}" path="/persons" z="YA+jP8iJ02iaWDnUyQS6geMJujg="/>
     </form:update>
 </div>

@@ -8,7 +8,7 @@
         <field:checkbox field="enabled" id="c_org_myorg_initial_roo_core_domain_security_Principal_enabled" z="zWGxUuk1/wFnSkrTk2nycY2PdYc="/>
         <field:textarea field="activationKey" id="c_org_myorg_initial_roo_core_domain_security_Principal_activationKey" z="380hgkkifuDWHn+VOJWwoqLUfNc="/>
         <field:select field="roles" id="c_org_myorg_initial_roo_core_domain_security_Principal_roles" itemValue="id" items="${authroles}" multiple="true" path="/roles" z="RU4c94V1by7rGa9Ke+StWMVCoY4="/>
-        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_security_Principal_person" itemValue="id" items="${people}" path="/people" z="O9CQTuNhbohz/iCfaYUqE8vYNLE="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_security_Principal_person" itemValue="id" items="${people}" path="/persons" z="lj3EytrLpgGiqqGrW4TEwlFPXLI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_myorg_initial_roo_core_domain_security_Principal" render="${not empty dependencies}" z="6kwAEd+ZHK/VJ8SIV18DrW/JZOg="/>
 </div>

@@ -13,4 +13,10 @@
 <definition extends="default" name="roles/update">
         <put-attribute name="body" value="/WEB-INF/views/roles/update.jspx"/>
     </definition>
+<definition extends="default" name="roles/findAuthRolesByAuthority">
+        <put-attribute name="body" value="/WEB-INF/views/roles/findAuthRolesByAuthority.jspx"/>
+    </definition>
+<definition extends="default" name="roles/findAuthRolesByRoleNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/roles/findAuthRolesByRoleNameLike.jspx"/>
+    </definition>
 </tiles-definitions>

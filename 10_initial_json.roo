@@ -42,4 +42,4 @@ web mvc json add --jsonObject initial-core|~.domain.model.Person --class ~.contr
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse

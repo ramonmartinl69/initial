@@ -6,10 +6,19 @@
         <menu:category id="c_authrole" z="ZlWmebafuyPTmbpQAHqkXeQDbQo=">
             <menu:item id="i_authrole_new" messageCode="global_menu_new" url="/roles?form" z="e0nNh5PmCp3kAtsTndJnCO5hTrA="/>
             <menu:item id="i_authrole_list" messageCode="global_menu_list" url="/roles?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dGxqhUp54W8aBD0WE2rhRUQv4Uo="/>
+            <menu:item id="fi_authrole_authority" messageCode="global_menu_find" url="/roles?find=ByAuthority&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="o7PzBpVl9RJ1EN7uq7tRoAvyxDw="/>
+            <menu:item id="fi_authrole_rolenamelike" messageCode="global_menu_find" url="/roles?find=ByRoleNameLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="bh19JHVbIbUret5Lu2Wt8dwUbJo="/>
         </menu:category>
         <menu:category id="c_principal" z="FnLFWXB/U5tWagL29D8k2ZPp4KM=">
             <menu:item id="i_principal_new" messageCode="global_menu_new" url="/principals?form" z="DOoyVyLEkO4c5ju9xLJqocjPDSY="/>
             <menu:item id="i_principal_list" messageCode="global_menu_list" url="/principals?page=1&amp;size=${empty param.size ? 10 : param.size}" z="tU1vqoorvagX9OGfFVp/QwtkPWg="/>
+            <menu:item id="fi_principal_activationkeyequals" messageCode="global_menu_find" url="/principals?find=ByActivationKeyEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="PJfvNwSxOWN2XO2BHBpn/qN/nzk="/>
+            <menu:item id="fi_principal_enablednot" messageCode="global_menu_find" url="/principals?find=ByEnabledNot&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="Zn6EE3z5qlguNyHCUopYBYWVZzI="/>
+            <menu:item id="fi_principal_roles" messageCode="global_menu_find" url="/principals?find=ByRoles&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="ym9j614P7pE72fJTeTTygv4Ss5s="/>
+            <menu:item id="fi_principal_usernameequals" messageCode="global_menu_find" url="/principals?find=ByUserNameEquals&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="ViaobosxVjzZxuKbbobfte1jQME="/>
+            <menu:item id="fi_principal_usernameisnotnull" messageCode="global_menu_find" url="/principals?find=ByUserNameIsNotNull&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="+U91I0a9p5frpoM6jPbs3JRCrVE="/>
+            <menu:item id="fi_principal_usernameisnull" messageCode="global_menu_find" url="/principals?find=ByUserNameIsNull&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="1CDzdxZcXmWzcQ9G4ziaBm+zoSE="/>
+            <menu:item id="fi_principal_usernamelike" messageCode="global_menu_find" url="/principals?find=ByUserNameLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="e74K/6r0wGW/U73ilE6UiYAlqMo="/>
         </menu:category>
         <menu:category id="c_homeaddress" z="oJpuKzXhWEcrVr7vqlwDeh5aV9c=">
             <menu:item id="i_homeaddress_new" messageCode="global_menu_new" url="/homeaddresses?form" z="p4fjnhoGvGeIKs/fUCP4y2+QrE8="/>
@@ -26,6 +35,8 @@
         <menu:category id="c_person" z="Cz66KzcF6GdyygpbYfiE+EkFFFA=">
             <menu:item id="i_person_new" messageCode="global_menu_new" url="/persons?form" z="nMBoMUD0qicHj5Fj/4XmcDGhw+A="/>
             <menu:item id="i_person_list" messageCode="global_menu_list" url="/persons?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6hCMdFwoJHNJrk/cAL0i3N05l1Y="/>
+            <menu:item id="fi_person_firstnamelikeandlastnamelike" messageCode="global_menu_find" url="/persons?find=ByFirstNameLikeAndLastNameLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="a7opTtVGeAJ6wfY39azJxIvK8N8="/>
+            <menu:item id="fi_person_niflike" messageCode="global_menu_find" url="/persons?find=ByNIFLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="RmmMa2q8EVnlVOmjnjA29/OIOd0="/>
         </menu:category>
     </menu:menu>
 </div>

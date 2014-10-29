@@ -39,4 +39,4 @@ finder add findPeopleByFirstNameLikeAndLastNameLike
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse

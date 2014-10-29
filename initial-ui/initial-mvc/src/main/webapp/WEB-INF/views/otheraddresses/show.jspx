@@ -12,5 +12,6 @@
         <field:display field="population" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_population" object="${otheraddress}" z="pQ9jpRweaZqTngQo9Zu1GayDsLg="/>
         <field:display field="addresNumber" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_addresNumber" object="${otheraddress}" z="/EgRhugnMv/6QDqJnN4iySusTIU="/>
         <field:display field="active" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_active" object="${otheraddress}" z="ay/yFtt4xCPXXT+YoQUK2BTj27o="/>
+        <field:display field="person" id="s_org_myorg_initial_roo_core_domain_model_OtherAddress_person" object="${otheraddress}" z="Ka61ttrAopAiDpUBcMyaKJdUCKU="/>
     </page:show>
 </div>

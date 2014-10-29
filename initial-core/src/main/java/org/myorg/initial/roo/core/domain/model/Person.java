@@ -26,9 +26,9 @@ import org.springframework.roo.addon.equals.RooEquals;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK")
 @RooSerializable
 @RooEquals(excludeFields = { "id", "firstName", "lastName", "lastName2", "birthDate", "nationality", "photoFile", "phone", "question", "response", "alternateQuestion", "alternateResponse", "actKey", "principal", "addresses" })
+@RooJpaActiveRecord(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK", finders = { "findPeopleByNIFLike", "findPeopleByFirstNameLikeAndLastNameLike" })
 public class Person {
 
     /**

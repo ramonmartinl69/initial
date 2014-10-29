@@ -7,33 +7,12 @@
 // �� IF ANY COMMAND OR SCRIPT FAILS TO EXECUTE, REMOVE C:\spring-roo-1.2.5.RELEASE\cache\ !!
 //
 
-module focus --moduleName initial-core
-//Person
-entity jpa --class ~.domain.model.Person --serializable --identifierColumn id_user --versionColumn OPT_LOCK --table person --testAutomatically  --activeRecord true
-field string --fieldName firstName --notNull --sizeMax 50 --sizeMin 1
-field string --fieldName lastName --notNull --sizeMax 50 --sizeMin 1
-field string --fieldName lastName2 --notNull --sizeMax 50 --sizeMin 1
-field date --fieldName birthDate --type java.util.Date --dateFormat MEDIUM --notNull
-field enum --fieldName nationality --type ~.domain.reference.CountryEnum 
-field string --fieldName nIF --notNull --sizeMax 15 --sizeMin 9 --regexp  ([X-Z]{1}\d{7}[A-Z]{1})|(\d{8}[A-Z]{1})
-field file --fieldName photoFile --contentType JPG
-field string --fieldName phone --sizeMax 15 --sizeMin 3 --notNull --regexp .*\d.*	
-field enum --fieldName question --type ~.domain.reference.SemanticQuestionEnum
-field string --fieldName response --sizeMax 100 --sizeMin 3
-field string --fieldName alternateQuestion --sizeMax 100 --sizeMin 3
-field string --fieldName alternateResponse --sizeMax 100 --sizeMin 3
-field reference --fieldName principal --type ~.domain.security.Principal --cardinality ONE_TO_ONE
-field list --fieldName addresses --type ~.domain.model.GeneralAddress --cardinality ONE_TO_MANY --mappedBy person --fetch LAZY
-equals --class ~.domain.model.Person --excludeFields "id firstName lastName lastName2 birthDate nationality photoFile phone question response alternateQuestion alternateResponse actKey principal addresses"
-//Bidirecional Association with GeneralAddress
-focus --class ~.domain.model.GeneralAddress
-field reference --fieldName person --type ~.domain.model.Person --cardinality MANY_TO_ONE  --joinColumnName  id_person
-//Bidirecional Association with GeneralAddress
-focus --class ~.domain.security.Principal
-field reference --fieldName person --joinColumnName id_person --type ~.domain.model.Person
-
+//Scaffold finders
 module focus --moduleName initial-ui/initial-mvc
-web mvc scaffold --class ~.controller.model.PersonController --backingType initial-core|~.domain.model.Person --path /persons
-
-module focus --moduleName initial-ui/initial-jsf
-web jsf scaffold --class ~.controller.model.PersonBean --entity initial-core|~.domain.model.Person
+//web mvc finder all
+web mvc finder add --formBackingType initial-core|~.domain.security.AuthRole --class ~.controller.security.AuthRoleController
+web mvc finder add --formBackingType initial-core|~.domain.security.Principal --class ~.controller.security.PrincipalController
+web mvc finder add --formBackingType initial-core|~.domain.model.HomeAddress --class ~.controller.model.HomeAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.WorkAddress --class ~.controller.model.WorkAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.OtherAddress --class ~.controller.model.OtherAddressController
+web mvc finder add --formBackingType initial-core|~.domain.model.Person --class ~.controller.model.PersonController

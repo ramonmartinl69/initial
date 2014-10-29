@@ -13,5 +13,6 @@
         <field:display field="addresNumber" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber" object="${workaddress}" z="T/tV+BilkbW4ul2tWw0SIvs/N/k="/>
         <field:display field="enterpriseName" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName" object="${workaddress}" z="hBbslR91QBD01vRO6bq+SELJGJo="/>
         <field:display field="postalAddress" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress" object="${workaddress}" z="des+ggUJacMvqY9FJfWBHmjveNE="/>
+        <field:display field="person" id="s_org_myorg_initial_roo_core_domain_model_WorkAddress_person" object="${workaddress}" z="VVVc3IHutVcYaeajlIJvkrg237s="/>
     </page:show>
 </div>

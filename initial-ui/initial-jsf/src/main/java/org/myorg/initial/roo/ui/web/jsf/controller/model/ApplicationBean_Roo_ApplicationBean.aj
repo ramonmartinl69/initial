@@ -179,7 +179,7 @@ privileged aspect ApplicationBean_Roo_ApplicationBean {
     }
     
     public String ApplicationBean.getAppName() {
-        return "Initial-jsf";
+        return "Initial";
     }
     
 }

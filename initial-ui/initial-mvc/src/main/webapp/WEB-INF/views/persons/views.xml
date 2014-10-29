@@ -13,4 +13,10 @@
 <definition extends="default" name="persons/update">
         <put-attribute name="body" value="/WEB-INF/views/persons/update.jspx"/>
     </definition>
+<definition extends="default" name="persons/findPeopleByFirstNameLikeAndLastNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/persons/findPeopleByFirstNameLikeAndLastNameLike.jspx"/>
+    </definition>
+<definition extends="default" name="persons/findPeopleByNIFLike">
+        <put-attribute name="body" value="/WEB-INF/views/persons/findPeopleByNIFLike.jspx"/>
+    </definition>
 </tiles-definitions>

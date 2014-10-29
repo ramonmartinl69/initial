@@ -11,5 +11,6 @@
         <field:display field="postalCode" id="s_org_myorg_initial_roo_core_domain_model_HomeAddress_postalCode" object="${homeaddress}" z="GvVwFW2zIf0v0Kf1Mc6vKHhB38c="/>
         <field:display field="population" id="s_org_myorg_initial_roo_core_domain_model_HomeAddress_population" object="${homeaddress}" z="tV5TirFfIaDMalZ2+GRZ7598iv4="/>
         <field:display field="addresNumber" id="s_org_myorg_initial_roo_core_domain_model_HomeAddress_addresNumber" object="${homeaddress}" z="gMRnDIomHp09fIkQQqvrTfKdBW8="/>
+        <field:display field="person" id="s_org_myorg_initial_roo_core_domain_model_HomeAddress_person" object="${homeaddress}" z="61Mj6Axdm4WIAbP2cVVTlZCam2k="/>
     </page:show>
 </div>

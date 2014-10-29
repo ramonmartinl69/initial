@@ -12,6 +12,7 @@
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_population" required="true" z="2Xq9dAbsujFPfF5UX+5qVhblv/A="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_addresNumber" required="true" z="kd2T6xBXur0sus/D59CCIJ7h0sQ="/>
         <field:checkbox field="active" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_active" z="NiS1gtgTH4lJPVsZFZpDGTe3UKc="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_person" itemValue="id" items="${people}" path="/persons" z="KNqgqOtikBhrV7++GuluZ+Am6qQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_myorg_initial_roo_core_domain_model_OtherAddress" render="${not empty dependencies}" z="S/Yd434IkEby1LbA0eUBixyOZ5w="/>
 </div>

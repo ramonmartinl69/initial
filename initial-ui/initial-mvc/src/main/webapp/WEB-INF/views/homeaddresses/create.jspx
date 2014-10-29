@@ -11,6 +11,7 @@
         <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="YKs4hFzxGAe/Lp55rz0VQnJppOE="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_population" required="true" z="58fipAErgKs1oayGykTTjok6NVM="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_addresNumber" required="true" z="yN+TWN3RclARCEM/HbV8RGPy+Mc="/>
+        <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_person" itemValue="id" items="${people}" path="/persons" z="m8wk65kCZhfWdDdRsUsqDPiB0GQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_myorg_initial_roo_core_domain_model_HomeAddress" render="${not empty dependencies}" z="d2z/5lNzDpZA6nEsZQTGgNE/Oe4="/>
 </div>

@@ -17,9 +17,9 @@ import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "id_address", inheritanceType = "SINGLE_TABLE", table = "address", versionColumn = "OPT_LOCK")
 @RooSerializable
 @RooEquals(excludeFields = { "addressType", "locationType", "address", "country", "province", "postalCode", "population", "addresNumber" })
+@RooJpaActiveRecord(identifierColumn = "id_address", inheritanceType = "SINGLE_TABLE", table = "address", versionColumn = "OPT_LOCK", finders = { "findGeneralAddressesByPerson", "findGeneralAddressesByAddressLike" })
 public abstract class GeneralAddress {
 
     /**

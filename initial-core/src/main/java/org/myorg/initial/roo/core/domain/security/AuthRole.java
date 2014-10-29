@@ -11,9 +11,9 @@ import org.springframework.roo.addon.equals.RooEquals;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "id_role", table = "security_role", versionColumn = "OPT_LOCK")
 @RooSerializable
 @RooEquals(excludeFields = { "id", "roleName" })
+@RooJpaActiveRecord(identifierColumn = "id_role", table = "security_role", versionColumn = "OPT_LOCK", finders = { "findAuthRolesByAuthority", "findAuthRolesByRoleNameLike" })
 public class AuthRole {
 
     /**

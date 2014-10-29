@@ -14,4 +14,4 @@ field email template --fieldName mailTemplate  --class ~.service.email.Notificat
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse

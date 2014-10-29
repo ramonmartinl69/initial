@@ -15,4 +15,4 @@ web jsf scaffold --class ~.controller.model.PersonBean --entity initial-core|~.d
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse

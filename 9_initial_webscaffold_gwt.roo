@@ -11,4 +11,4 @@ web gwt scaffold --proxyPackage ~.client.proxy --requestPackage ~.client.request
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse

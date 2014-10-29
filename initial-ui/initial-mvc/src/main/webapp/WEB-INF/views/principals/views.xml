@@ -13,4 +13,25 @@
 <definition extends="default" name="principals/update">
         <put-attribute name="body" value="/WEB-INF/views/principals/update.jspx"/>
     </definition>
+<definition extends="default" name="principals/findPrincipalsByActivationKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByActivationKeyEquals.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByEnabledNot">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByEnabledNot.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByRoles">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByRoles.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByUserNameEquals">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByUserNameEquals.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByUserNameIsNotNull">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByUserNameIsNotNull.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByUserNameIsNull">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByUserNameIsNull.jspx"/>
+    </definition>
+<definition extends="default" name="principals/findPrincipalsByUserNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/principals/findPrincipalsByUserNameLike.jspx"/>
+    </definition>
 </tiles-definitions>

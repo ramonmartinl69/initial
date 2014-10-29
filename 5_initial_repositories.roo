@@ -13,4 +13,4 @@ class --class ~.repository.AppQueryRepositoryImpl
 
 // mvn eclipse:eclipse
 module focus --moduleName ~
-perform eclipse
+//perform eclipse
