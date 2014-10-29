@@ -8,12 +8,13 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.myorg.initial.roo.core.domain.model.OtherAddress;
-import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
 import org.myorg.initial.roo.ui.web.mvc.controller.model.OtherAddressController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,9 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect OtherAddressController_Roo_Controller {
+    
+    @Autowired
+    PersonRepository OtherAddressController.personRepository;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String OtherAddressController.create(@Valid OtherAddress otherAddress, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -92,7 +96,7 @@ privileged aspect OtherAddressController_Roo_Controller {
     
     void OtherAddressController.populateEditForm(Model uiModel, OtherAddress otherAddress) {
         uiModel.addAttribute("otherAddress", otherAddress);
-        uiModel.addAttribute("people", Person.findAllPeople());
+        uiModel.addAttribute("people", personRepository.findAll());
         uiModel.addAttribute("addreslocationtypeenums", Arrays.asList(AddresLocationTypeEnum.values()));
         uiModel.addAttribute("addresstypeenums", Arrays.asList(AddressTypeEnum.values()));
         uiModel.addAttribute("countryenums", Arrays.asList(CountryEnum.values()));

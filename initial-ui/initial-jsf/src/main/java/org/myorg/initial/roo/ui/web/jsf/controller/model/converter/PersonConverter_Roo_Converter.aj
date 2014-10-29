@@ -8,7 +8,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import org.myorg.initial.roo.core.domain.model.Person;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 privileged aspect PersonConverter_Roo_Converter {
     
@@ -16,12 +18,15 @@ privileged aspect PersonConverter_Roo_Converter {
     
     declare @type: PersonConverter: @FacesConverter("org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter");
     
+    @Autowired
+    PersonRepository PersonConverter.personRepository;
+    
     public Object PersonConverter.getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null || value.length() == 0) {
             return null;
         }
         Long id = Long.parseLong(value);
-        return Person.findPerson(id);
+        return personRepository.findOne(id);
     }
     
     public String PersonConverter.getAsString(FacesContext context, UIComponent component, Object value) {

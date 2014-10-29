@@ -9,7 +9,10 @@ import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.model.WorkAddress;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
+import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
 import org.myorg.initial.roo.ui.web.mvc.controller.security.ApplicationConversionServiceFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -17,6 +20,12 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    @Autowired
+    PersonRepository ApplicationConversionServiceFactoryBean.personRepository;
+    
+    @Autowired
+    PrincipalRepository ApplicationConversionServiceFactoryBean.principalRepository;
     
     public Converter<HomeAddress, String> ApplicationConversionServiceFactoryBean.getHomeAddressToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<org.myorg.initial.roo.core.domain.model.HomeAddress, java.lang.String>() {
@@ -77,7 +86,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Long, Person> ApplicationConversionServiceFactoryBean.getIdToPersonConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.model.Person>() {
             public org.myorg.initial.roo.core.domain.model.Person convert(java.lang.Long id) {
-                return Person.findPerson(id);
+                return personRepository.findOne(id);
             }
         };
     }
@@ -149,7 +158,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Long, Principal> ApplicationConversionServiceFactoryBean.getIdToPrincipalConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.myorg.initial.roo.core.domain.security.Principal>() {
             public org.myorg.initial.roo.core.domain.security.Principal convert(java.lang.Long id) {
-                return Principal.findPrincipal(id);
+                return principalRepository.findOne(id);
             }
         };
     }

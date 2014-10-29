@@ -6,10 +6,12 @@ package org.myorg.initial.roo.ui.web.mvc.controller.security;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
+import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
 import org.myorg.initial.roo.ui.web.mvc.controller.security.PrincipalController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,12 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect PrincipalController_Roo_Controller {
     
+    @Autowired
+    PrincipalRepository PrincipalController.principalRepository;
+    
+    @Autowired
+    PersonRepository PrincipalController.personRepository;
+    
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String PrincipalController.create(@Valid Principal principal, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
@@ -28,7 +36,7 @@ privileged aspect PrincipalController_Roo_Controller {
             return "principals/create";
         }
         uiModel.asMap().clear();
-        principal.persist();
+        principalRepository.save(principal);
         return "redirect:/principals/" + encodeUrlPathSegment(principal.getId().toString(), httpServletRequest);
     }
     
@@ -40,7 +48,7 @@ privileged aspect PrincipalController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String PrincipalController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("principal", Principal.findPrincipal(id));
+        uiModel.addAttribute("principal", principalRepository.findOne(id));
         uiModel.addAttribute("itemId", id);
         return "principals/show";
     }
@@ -50,11 +58,11 @@ privileged aspect PrincipalController_Roo_Controller {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("principals", Principal.findPrincipalEntries(firstResult, sizeNo, sortFieldName, sortOrder));
-            float nrOfPages = (float) Principal.countPrincipals() / sizeNo;
+            uiModel.addAttribute("principals", principalRepository.findAll(new org.springframework.data.domain.PageRequest(firstResult / sizeNo, sizeNo)).getContent());
+            float nrOfPages = (float) principalRepository.count() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("principals", Principal.findAllPrincipals(sortFieldName, sortOrder));
+            uiModel.addAttribute("principals", principalRepository.findAll());
         }
         return "principals/list";
     }
@@ -66,20 +74,20 @@ privileged aspect PrincipalController_Roo_Controller {
             return "principals/update";
         }
         uiModel.asMap().clear();
-        principal.merge();
+        principalRepository.save(principal);
         return "redirect:/principals/" + encodeUrlPathSegment(principal.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String PrincipalController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, Principal.findPrincipal(id));
+        populateEditForm(uiModel, principalRepository.findOne(id));
         return "principals/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
     public String PrincipalController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Principal principal = Principal.findPrincipal(id);
-        principal.remove();
+        Principal principal = principalRepository.findOne(id);
+        principalRepository.delete(principal);
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
@@ -88,7 +96,7 @@ privileged aspect PrincipalController_Roo_Controller {
     
     void PrincipalController.populateEditForm(Model uiModel, Principal principal) {
         uiModel.addAttribute("principal", principal);
-        uiModel.addAttribute("people", Person.findAllPeople());
+        uiModel.addAttribute("people", personRepository.findAll());
         uiModel.addAttribute("authroles", AuthRole.findAllAuthRoles());
     }
     

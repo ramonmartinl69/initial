@@ -22,6 +22,7 @@ import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.OtherAddressBean;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.util.MessageFactory;
@@ -33,12 +34,16 @@ import org.primefaces.component.outputlabel.OutputLabel;
 import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CloseEvent;
+import org.springframework.beans.factory.annotation.Autowired;
 
 privileged aspect OtherAddressBean_Roo_ManagedBean {
     
     declare @type: OtherAddressBean: @ManagedBean(name = "otherAddressBean");
     
     declare @type: OtherAddressBean: @SessionScoped;
+    
+    @Autowired
+    PersonRepository OtherAddressBean.personRepository;
     
     private String OtherAddressBean.name = "OtherAddresses";
     
@@ -740,7 +745,7 @@ privileged aspect OtherAddressBean_Roo_ManagedBean {
     
     public List<Person> OtherAddressBean.completePerson(String query) {
         List<Person> suggestions = new ArrayList<Person>();
-        for (Person person : Person.findAllPeople()) {
+        for (Person person : personRepository.findAll()) {
             String personStr = String.valueOf(person.getFirstName() +  " "  + person.getLastName() +  " "  + person.getLastName2() +  " "  + person.getBirthDate());
             if (personStr.toLowerCase().startsWith(query.toLowerCase())) {
                 suggestions.add(person);

@@ -22,6 +22,8 @@ import javax.faces.validator.RegexValidator;
 import org.myorg.initial.roo.core.domain.model.Person;
 import org.myorg.initial.roo.core.domain.security.AuthRole;
 import org.myorg.initial.roo.core.domain.security.Principal;
+import org.myorg.initial.roo.core.repository.model.PersonRepository;
+import org.myorg.initial.roo.core.repository.security.PrincipalRepository;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.PrincipalBean;
 import org.myorg.initial.roo.ui.web.jsf.controller.security.converter.AuthRoleConverter;
 import org.myorg.initial.roo.ui.web.jsf.controller.model.converter.PersonConverter;
@@ -34,12 +36,19 @@ import org.primefaces.component.selectbooleancheckbox.SelectBooleanCheckbox;
 import org.primefaces.component.selectmanymenu.SelectManyMenu;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.CloseEvent;
+import org.springframework.beans.factory.annotation.Autowired;
 
 privileged aspect PrincipalBean_Roo_ManagedBean {
     
     declare @type: PrincipalBean: @ManagedBean(name = "principalBean");
     
     declare @type: PrincipalBean: @SessionScoped;
+    
+    @Autowired
+    PrincipalRepository PrincipalBean.principalRepository;
+    
+    @Autowired
+    PersonRepository PrincipalBean.personRepository;
     
     private String PrincipalBean.name = "Principals";
     
@@ -86,7 +95,7 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
     }
     
     public String PrincipalBean.findAllPrincipals() {
-        allPrincipals = Principal.findAllPrincipals();
+        allPrincipals = principalRepository.findAll();
         dataVisible = !allPrincipals.isEmpty();
         return null;
     }
@@ -532,7 +541,7 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
     
     public List<Person> PrincipalBean.completePerson(String query) {
         List<Person> suggestions = new ArrayList<Person>();
-        for (Person person : Person.findAllPeople()) {
+        for (Person person : personRepository.findAll()) {
             String personStr = String.valueOf(person.getFirstName() +  " "  + person.getLastName() +  " "  + person.getLastName2() +  " "  + person.getBirthDate());
             if (personStr.toLowerCase().startsWith(query.toLowerCase())) {
                 suggestions.add(person);
@@ -571,10 +580,10 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
     public String PrincipalBean.persist() {
         String message = "";
         if (principal.getId() != null) {
-            principal.merge();
+            principalRepository.save(principal);
             message = "message_successfully_updated";
         } else {
-            principal.persist();
+            principalRepository.save(principal);
             message = "message_successfully_created";
         }
         RequestContext context = RequestContext.getCurrentInstance();
@@ -588,7 +597,7 @@ privileged aspect PrincipalBean_Roo_ManagedBean {
     }
     
     public String PrincipalBean.delete() {
-        principal.remove();
+        principalRepository.delete(principal);
         FacesMessage facesMessage = MessageFactory.getMessage("message_successfully_deleted", "Principal");
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
         reset();

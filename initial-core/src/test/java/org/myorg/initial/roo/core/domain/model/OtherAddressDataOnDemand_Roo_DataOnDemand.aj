@@ -12,11 +12,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.myorg.initial.roo.core.domain.model.OtherAddress;
 import org.myorg.initial.roo.core.domain.model.OtherAddressDataOnDemand;
-import org.myorg.initial.roo.core.domain.model.Person;
+import org.myorg.initial.roo.core.domain.model.PersonDataOnDemand;
 import org.myorg.initial.roo.core.domain.reference.AddresLocationTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.AddressTypeEnum;
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
 import org.myorg.initial.roo.core.domain.reference.ProvinceEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
@@ -27,6 +28,9 @@ privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
     
     private List<OtherAddress> OtherAddressDataOnDemand.data;
     
+    @Autowired
+    PersonDataOnDemand OtherAddressDataOnDemand.personDataOnDemand;
+    
     public OtherAddress OtherAddressDataOnDemand.getNewTransientOtherAddress(int index) {
         OtherAddress obj = new OtherAddress();
         setActive(obj, index);
@@ -35,7 +39,6 @@ privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
         setAddressType(obj, index);
         setCountry(obj, index);
         setLocationType(obj, index);
-        setPerson(obj, index);
         setPopulation(obj, index);
         setPostalCode(obj, index);
         setProvince(obj, index);
@@ -76,11 +79,6 @@ privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
     public void OtherAddressDataOnDemand.setLocationType(OtherAddress obj, int index) {
         AddresLocationTypeEnum locationType = AddresLocationTypeEnum.class.getEnumConstants()[0];
         obj.setLocationType(locationType);
-    }
-    
-    public void OtherAddressDataOnDemand.setPerson(OtherAddress obj, int index) {
-        Person person = null;
-        obj.setPerson(person);
     }
     
     public void OtherAddressDataOnDemand.setPopulation(OtherAddress obj, int index) {
