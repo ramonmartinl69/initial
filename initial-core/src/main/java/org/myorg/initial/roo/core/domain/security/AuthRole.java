@@ -8,12 +8,14 @@ import javax.validation.constraints.NotNull;
 import org.myorg.initial.roo.core.domain.reference.SecurityRoleEnum;
 import javax.validation.constraints.Size;
 import org.springframework.roo.addon.equals.RooEquals;
+import org.springframework.roo.addon.json.RooJson;
 
 @RooJavaBean
 @RooToString
 @RooSerializable
 @RooEquals(excludeFields = { "id", "roleName" })
 @RooJpaActiveRecord(identifierColumn = "id_role", table = "security_role", versionColumn = "OPT_LOCK", finders = { "findAuthRolesByAuthority", "findAuthRolesByRoleNameLike" })
+@RooJson
 public class AuthRole {
 
     /**

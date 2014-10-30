@@ -14,12 +14,14 @@ import javax.validation.constraints.Pattern;
 import org.springframework.roo.addon.equals.RooEquals;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import org.springframework.roo.addon.json.RooJson;
 
 @RooJavaBean
 @RooToString
 @RooSerializable
 @RooEquals(excludeFields = { "addressType", "locationType", "address", "country", "province", "postalCode", "population", "addresNumber" })
 @RooJpaActiveRecord(identifierColumn = "id_address", inheritanceType = "SINGLE_TABLE", table = "address", versionColumn = "OPT_LOCK", finders = { "findGeneralAddressesByPerson", "findGeneralAddressesByAddressLike" })
+@RooJson
 public abstract class GeneralAddress {
 
     /**

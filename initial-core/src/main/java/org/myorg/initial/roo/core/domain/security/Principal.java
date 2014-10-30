@@ -4,24 +4,19 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.serializable.RooSerializable;
 import org.springframework.roo.addon.tostring.RooToString;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
-
 import org.springframework.roo.addon.equals.RooEquals;
-
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import org.myorg.initial.roo.core.domain.model.Person;
+import org.springframework.roo.addon.json.RooJson;
 
 @RooJavaBean
 @RooToString
@@ -29,6 +24,7 @@ import org.myorg.initial.roo.core.domain.model.Person;
 @RooEquals(excludeFields = { "id", "password", "repeatPassword", "enabled", "roles" })
 //@RooJpaActiveRecord(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK", finders = { "findPrincipalsByRoles", "findPrincipalsByUserNameEquals", "findPrincipalsByUserNameLike", "findPrincipalsByUserNameIsNull", "findPrincipalsByUserNameIsNotNull", "findPrincipalsByEnabledNot", "findPrincipalsByActivationKeyEquals" })
 @RooJpaEntity(identifierColumn = "id_user", table = "security_user", versionColumn = "OPT_LOCK")
+@RooJson
 public class Principal {
 
     /**

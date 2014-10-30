@@ -4,39 +4,27 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.serializable.RooSerializable;
 import org.springframework.roo.addon.tostring.RooToString;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import java.util.Date;
-
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Enumerated;
-
 import org.myorg.initial.roo.core.domain.reference.CountryEnum;
-
 import javax.validation.constraints.Pattern;
 import javax.persistence.Lob;
-
 import org.springframework.roo.classpath.operations.jsr303.RooUploadedFile;
 import org.myorg.initial.roo.core.domain.reference.SemanticQuestionEnum;
-
 import javax.persistence.OneToOne;
-
 import org.myorg.initial.roo.core.domain.security.Principal;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-
 import org.springframework.roo.addon.equals.RooEquals;
+import org.springframework.roo.addon.json.RooJson;
 
 @RooJavaBean
 @RooToString
@@ -44,6 +32,7 @@ import org.springframework.roo.addon.equals.RooEquals;
 @RooEquals(excludeFields = { "id", "firstName", "lastName", "lastName2", "birthDate", "nationality", "photoFile", "phone", "question", "response", "alternateQuestion", "alternateResponse", "actKey", "principal", "addresses" })
 //@RooJpaActiveRecord(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK", finders = { "findPeopleByNIFLike", "findPeopleByFirstNameLikeAndLastNameLike" })
 @RooJpaEntity(identifierColumn = "id_user", table = "person", versionColumn = "OPT_LOCK")
+@RooJson
 public class Person {
 
     /**
