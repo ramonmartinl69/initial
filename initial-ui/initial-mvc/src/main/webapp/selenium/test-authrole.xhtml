@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<link href="http://localhost:8080/" rel="selenium.base"/>
+<title>Selenium test for AuthRoleController</title>
+</head>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <thead>
+            <tr>
+                <td colspan="3" rowspan="1">Selenium test for AuthRoleController</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>open</td>
+                    <td>http://localhost:8080/initial-mvc/;lang=en_US</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>j_username</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>j_password</td>
+                    <td>admin</td>
+                </tr>
+                <tr>
+                    <td>clickAndWait</td>
+                    <td>//input[@id = 'proceed']</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>Welcome to Initial-mvc</td>
+                </tr>
+        		<tr>
+                    <td>open</td>
+                    <td>http://localhost:8080/initial-mvc/roles?form&amp;lang=en_US</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>_roleName_id</td>
+                    <td>roleName1</td>
+                </tr>
+                <tr>
+                    <td>clickAndWait</td>
+                    <td>//input[@id = 'proceed']</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>_s_org_myorg_initial_roo_core_domain_security_AuthRole_roleName_roleName_id</td>
+                    <td>roleName1</td>
+                </tr>
+            </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+// TO EXECUTE THIS: 
+// $roo script initial.roo (Invoke the Script as you load the Shell)
+// roo> script --file C:\Users\Ramon\WKSPC_INITIAL\initial\initial.roo (Invoke the Script from within the Roo shell)
+// SELENIUM TESTS
+//
+//Selenium Test MVC Controllers
+module focus --moduleName initial-ui/initial-mvc
+selenium test --controller ~.controller.security.AuthRoleController 
+selenium test --controller ~.controller.security.PrincipalController
+selenium test --controller ~.controller.model.HomeAddressController
+selenium test --controller ~.controller.model.WorkAddressController
+selenium test --controller ~.controller.model.OtherAddressController
+selenium test --controller ~.controller.model.PersonController
+
+// mvn eclipse:eclipse
+module focus --moduleName ~
+//perform eclipse
