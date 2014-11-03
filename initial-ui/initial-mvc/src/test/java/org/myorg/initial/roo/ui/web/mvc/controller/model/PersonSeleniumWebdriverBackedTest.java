@@ -11,6 +11,14 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
+/**
+ * Converted from the Firefox Selenium IDE Plugin
+ * Fie -->Export File as -->Junit4 Webdriver Backed
+ * (test-person.xhtml)
+ * Only works if the Application is running, run jetty:run first
+ * @author Ramon
+ *
+ */
 public class PersonSeleniumWebdriverBackedTest {
 	private Selenium selenium;
 
