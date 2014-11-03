@@ -11,4 +11,12 @@ public class PersonDataOnDemand {
         }
         obj.setNIF(nIF);
     }
+
+	public void setPhone(Person obj, int index) {
+        String phone = "123" + index;
+        if (phone.length() > 15) {
+            phone = phone.substring(0, 15);
+        }
+        obj.setPhone(phone);
+    }
 }

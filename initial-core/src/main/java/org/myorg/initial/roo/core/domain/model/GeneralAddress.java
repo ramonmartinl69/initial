@@ -57,7 +57,7 @@ public abstract class GeneralAddress {
      */
     @NotNull
     @Size(min = 3, max = 10)
-    @Pattern(regexp = ".*\\d.*")
+    @Pattern(regexp = "^[0-9]*$")
     private String postalCode;
 
     /**

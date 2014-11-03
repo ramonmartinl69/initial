@@ -256,7 +256,7 @@ privileged aspect WorkAddressBean_Roo_ManagedBean {
         postalCodeCreateInputValidator.setMaximum(10);
         postalCodeCreateInput.addValidator(postalCodeCreateInputValidator);
         RegexValidator postalCodeCreateInputRegexValidator = new RegexValidator();
-        postalCodeCreateInputRegexValidator.setPattern(".*\\d.*");
+        postalCodeCreateInputRegexValidator.setPattern("^[0-9]*$");
         postalCodeCreateInput.addValidator(postalCodeCreateInputRegexValidator);
         postalCodeCreateInput.setRequired(true);
         htmlPanelGrid.getChildren().add(postalCodeCreateInput);
@@ -506,7 +506,7 @@ privileged aspect WorkAddressBean_Roo_ManagedBean {
         postalCodeEditInputValidator.setMaximum(10);
         postalCodeEditInput.addValidator(postalCodeEditInputValidator);
         RegexValidator postalCodeEditInputRegexValidator = new RegexValidator();
-        postalCodeEditInputRegexValidator.setPattern(".*\\d.*");
+        postalCodeEditInputRegexValidator.setPattern("^[0-9]*$");
         postalCodeEditInput.addValidator(postalCodeEditInputRegexValidator);
         postalCodeEditInput.setRequired(true);
         htmlPanelGrid.getChildren().add(postalCodeEditInput);

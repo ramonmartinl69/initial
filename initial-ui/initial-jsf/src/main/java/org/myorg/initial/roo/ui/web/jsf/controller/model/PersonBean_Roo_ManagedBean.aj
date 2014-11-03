@@ -320,7 +320,7 @@ privileged aspect PersonBean_Roo_ManagedBean {
         phoneCreateInputValidator.setMaximum(15);
         phoneCreateInput.addValidator(phoneCreateInputValidator);
         RegexValidator phoneCreateInputRegexValidator = new RegexValidator();
-        phoneCreateInputRegexValidator.setPattern(".*\\d.*");
+        phoneCreateInputRegexValidator.setPattern("^[0-9]*$*");
         phoneCreateInput.addValidator(phoneCreateInputRegexValidator);
         phoneCreateInput.setRequired(true);
         htmlPanelGrid.getChildren().add(phoneCreateInput);
@@ -637,7 +637,7 @@ privileged aspect PersonBean_Roo_ManagedBean {
         phoneEditInputValidator.setMaximum(15);
         phoneEditInput.addValidator(phoneEditInputValidator);
         RegexValidator phoneEditInputRegexValidator = new RegexValidator();
-        phoneEditInputRegexValidator.setPattern(".*\\d.*");
+        phoneEditInputRegexValidator.setPattern("^[0-9]*$*");
         phoneEditInput.addValidator(phoneEditInputRegexValidator);
         phoneEditInput.setRequired(true);
         htmlPanelGrid.getChildren().add(phoneEditInput);

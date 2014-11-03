@@ -89,14 +89,6 @@ privileged aspect OtherAddressDataOnDemand_Roo_DataOnDemand {
         obj.setPopulation(population);
     }
     
-    public void OtherAddressDataOnDemand.setPostalCode(OtherAddress obj, int index) {
-        String postalCode = "postalCo_" + index;
-        if (postalCode.length() > 10) {
-            postalCode = postalCode.substring(0, 10);
-        }
-        obj.setPostalCode(postalCode);
-    }
-    
     public void OtherAddressDataOnDemand.setProvince(OtherAddress obj, int index) {
         ProvinceEnum province = ProvinceEnum.class.getEnumConstants()[0];
         obj.setProvince(province);

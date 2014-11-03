@@ -255,6 +255,18 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- Selenium Client Driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium.client-drivers</groupId>
+			<artifactId>selenium-java-client-driver</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<!-- Selenium WebDriver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.44.0</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
@@ -338,6 +350,8 @@
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <excludes>
                         <exclude>**/*_Roo_*</exclude>
+                        <!-- Exclude Selenium Tests -->
+                        <exclude>**/*Selenium*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -408,25 +422,92 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
-            <!-- Selenium Plugin -->
+            <!-- Selenium Plugin Fixed with update from version 2.25 to version 2.44.0 -->
         	<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>selenium-maven-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                <browser>*firefox</browser>
-                <suite>src/main/webapp/selenium/test-suite.xhtml</suite>
-                <results>${project.build.directory}/selenium.html</results>
-                <startURL>http://localhost:4444/</startURL>
-            </configuration>
+	                <browser>*firefox</browser>
+	                <suite>src/main/webapp/selenium/test-suite.xhtml</suite>
+	                <results>${project.build.directory}/selenium.html</results>
+	                <startURL>http://localhost:4444/</startURL>
+            	</configuration>
                 <dependencies>
+                	<!-- Selenium Server -->
                     <dependency>
                         <groupId>org.seleniumhq.selenium</groupId>
                         <artifactId>selenium-server</artifactId>
-                        <version>2.25.0</version>
+<!--                         <version>2.25.0</version> -->
+						<version>2.44.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+		        <artifactId>maven-failsafe-plugin</artifactId>
+		        <version>2.6</version>
+		        <executions>
+		          <execution>
+		            <goals>
+		              <goal>integration-test</goal>
+		              <goal>verify</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <plugin>
+		        <groupId>org.mortbay.jetty</groupId>
+		        <artifactId>maven-jetty-plugin</artifactId>
+		        <version>6.1.16</version>
+		        <configuration>
+		          <scanIntervalSeconds>10</scanIntervalSeconds>
+		          <stopPort>8005</stopPort>
+		          <stopKey>STOP</stopKey>
+		          <contextPath>/</contextPath>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>start-jetty</id>
+		            <phase>pre-integration-test</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		            <configuration>
+		              <scanIntervalSeconds>0</scanIntervalSeconds>
+		              <daemon>true</daemon>
+		            </configuration>
+		          </execution>
+		          <execution>
+		            <id>stop-jetty</id>
+		            <phase>post-integration-test</phase>
+		            <goals>
+		              <goal>stop</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
         </plugins>
     </build>
+    <profiles>
+    <profile>
+    	<!-- Profile to run selenium tests mvn test -P selenium, You need to start the application first -->
+      <id>selenium</id>
+      <build>
+		<plugins>
+      	   <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <configuration>
+                    <printSummary>false</printSummary>
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <excludes>
+                        <exclude>**/*_Roo_*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+		</plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

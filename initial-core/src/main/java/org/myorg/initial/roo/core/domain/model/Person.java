@@ -82,7 +82,7 @@ public class Person {
      */
     @NotNull
     @Size(min = 3, max = 15)
-    @Pattern(regexp = ".*\\d.*")
+    @Pattern(regexp = "^[0-9]*$*")
     private String phone;
 
     /**

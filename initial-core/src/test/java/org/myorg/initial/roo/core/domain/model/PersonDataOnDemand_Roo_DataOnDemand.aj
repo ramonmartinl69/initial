@@ -107,14 +107,6 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
         obj.setNationality(nationality);
     }
     
-    public void PersonDataOnDemand.setPhone(Person obj, int index) {
-        String phone = "phone_" + index;
-        if (phone.length() > 15) {
-            phone = phone.substring(0, 15);
-        }
-        obj.setPhone(phone);
-    }
-    
     public void PersonDataOnDemand.setPhotoFile(Person obj, int index) {
         byte[] photoFile = String.valueOf(index).getBytes();
         obj.setPhotoFile(photoFile);

@@ -101,14 +101,6 @@ privileged aspect WorkAddressDataOnDemand_Roo_DataOnDemand {
         obj.setPostalAddress(postalAddress);
     }
     
-    public void WorkAddressDataOnDemand.setPostalCode(WorkAddress obj, int index) {
-        String postalCode = "postalCo_" + index;
-        if (postalCode.length() > 10) {
-            postalCode = postalCode.substring(0, 10);
-        }
-        obj.setPostalCode(postalCode);
-    }
-    
     public void WorkAddressDataOnDemand.setProvince(WorkAddress obj, int index) {
         ProvinceEnum province = ProvinceEnum.class.getEnumConstants()[0];
         obj.setProvince(province);

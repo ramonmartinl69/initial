@@ -10,7 +10,7 @@
         <field:select field="nationality" id="c_org_myorg_initial_roo_core_domain_model_Person_nationality" items="${countryenums}" path="countryenums" z="/mCOIBHwUzytqYM/h11GUoOJc/A="/>
         <field:input field="nIF" id="c_org_myorg_initial_roo_core_domain_model_Person_nIF" max="15" min="9" required="true" validationRegex="([X-Z]{1}\\d{7}[A-Z]{1})|(\\d{8}[A-Z]{1})" z="V6fjWm8xzix5xUzQGMiqohiZcHQ="/>
         <field:textarea field="photoFile" id="c_org_myorg_initial_roo_core_domain_model_Person_photoFile" z="bilyHLS3aEniXPgj7Tiw6cN3YQM="/>
-        <field:input field="phone" id="c_org_myorg_initial_roo_core_domain_model_Person_phone" max="15" min="3" required="true" validationRegex=".*\\d.*" z="wj/Vj3nBfCfhtR0cZDfzIWQWpiY="/>
+        <field:input field="phone" id="c_org_myorg_initial_roo_core_domain_model_Person_phone" max="15" min="3" required="true" validationRegex="^[0-9]*$*" z="A5/QyuEQHYmDK7JiSSQqAlwOX2Y="/>
         <field:select field="question" id="c_org_myorg_initial_roo_core_domain_model_Person_question" items="${semanticquestionenums}" path="semanticquestionenums" z="b4NbfQH9WnLK4YoTFoppWsjVuZQ="/>
         <field:textarea field="response" id="c_org_myorg_initial_roo_core_domain_model_Person_response" z="RC7mrG0PB6CMZiqV0JBZ6PYveqE="/>
         <field:textarea field="alternateQuestion" id="c_org_myorg_initial_roo_core_domain_model_Person_alternateQuestion" z="a7lWu0d/yRLILoJQzVj+VtKbrAk="/>

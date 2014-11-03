@@ -12,58 +12,83 @@
                 <td colspan="3" rowspan="1">Selenium test for PrincipalController</td>
             </tr>
         </thead>
-        <tbody>
-        <tr>
-                    <td>open</td>
-                    <td>http://localhost:8080/initial-mvc/principals?form&amp;lang=en_US</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_userName_id</td>
-                    <td>someUserName1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_password_id</td>
-                    <td>somePassword1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_enabled_id</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_activationKey_id</td>
-                    <td>someActivationKey1</td>
-                </tr>
-                <tr>
-                    <td>clickAndWait</td>
-                    <td>//input[@id = 'proceed']</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_security_Principal_userName_userName_id</td>
-                    <td>someUserName1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_security_Principal_password_password_id</td>
-                    <td>somePassword1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_security_Principal_enabled_enabled_id</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_security_Principal_activationKey_activationKey_id</td>
-                    <td>someActivationKey1</td>
-                </tr>
-            </tbody>
-    </table>
+		<tbody>
+			<tr>
+	<td>open</td>
+	<td>http://localhost:8080/initial-mvc/login;lang=en_US</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=proceed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>_title_title_id_pane</td>
+	<td>Welcome to Initial-mvc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create new Principal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>_userName_id</td>
+	<td>userName@myorg.org</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>_password_id</td>
+	<td>somePassword1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>_enabled_id</td>
+	<td>false</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>_activationKey_id</td>
+	<td>someActivationKey1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=proceed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>_s_org_myorg_initial_roo_core_domain_security_Principal_userName_userName_id</td>
+	<td>userName@myorg.org</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>_s_org_myorg_initial_roo_core_domain_security_Principal_password_password_id</td>
+	<td>somePassword1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>_s_org_myorg_initial_roo_core_domain_security_Principal_enabled_enabled_id</td>
+	<td>false</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>_s_org_myorg_initial_roo_core_domain_security_Principal_activationKey_activationKey_id</td>
+	<td>someActivationKey1</td>
+</tr>
+</tbody>
+	</table>
 </body>
 </html>

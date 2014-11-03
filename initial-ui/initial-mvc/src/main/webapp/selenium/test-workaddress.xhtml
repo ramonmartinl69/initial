@@ -1,89 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-<link href="http://localhost:8080/" rel="selenium.base"/>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<link href="http://localhost:8080/" rel="selenium.base" />
 <title>Selenium test for WorkAddressController</title>
 </head>
 <body>
-    <table border="1" cellpadding="1" cellspacing="1">
-        <thead>
-            <tr>
-                <td colspan="3" rowspan="1">Selenium test for WorkAddressController</td>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-                    <td>open</td>
-                    <td>http://localhost:8080/initial-mvc/workaddresses?form&amp;lang=en_US</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_address_id</td>
-                    <td>someAddress1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_postalCode_id</td>
-                    <td>somePostalCode1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_population_id</td>
-                    <td>somePopulation1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_addresNumber_id</td>
-                    <td>someAddresNumber1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_enterpriseName_id</td>
-                    <td>someEnterpriseName1</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_postalAddress_id</td>
-                    <td>somePostalAddress1</td>
-                </tr>
-                <tr>
-                    <td>clickAndWait</td>
-                    <td>//input[@id = 'proceed']</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_address_address_id</td>
-                    <td>someAddress1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode_postalCode_id</td>
-                    <td>somePostalCode1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_population_population_id</td>
-                    <td>somePopulation1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber_addresNumber_id</td>
-                    <td>someAddresNumber1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName_enterpriseName_id</td>
-                    <td>someEnterpriseName1</td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress_postalAddress_id</td>
-                    <td>somePostalAddress1</td>
-                </tr>
-            </tbody>
-    </table>
+	<table border="1" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<td colspan="3" rowspan="1">Selenium test for
+					WorkAddressController</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://localhost:8080/initial-mvc/login;lang=en_US</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=j_username</td>
+				<td>admin</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=j_password</td>
+				<td>admin</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>id=proceed</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_title_title_id_pane</td>
+				<td>Welcome to Initial-mvc</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>link=Create new Work Address</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_address_id</td>
+				<td>someAddress</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_postalCode_id</td>
+				<td>28224</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_population_id</td>
+				<td>somePopulation</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_addresNumber_id</td>
+				<td>33</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_enterpriseName_id</td>
+				<td>someEnterpriseName</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>_postalAddress_id</td>
+				<td>somePostalAddress</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>id=proceed</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_address_address_id</td>
+				<td>someAddress</td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode_postalCode_id</td>
+				<td>28224</td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_population_population_id</td>
+				<td>somePopulation</td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber_addresNumber_id</td>
+				<td>33</td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName_enterpriseName_id</td>
+				<td>someEnterpriseName</td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_model_WorkAddress_postalAddress_postalAddress_id</td>
+				<td>somePostalAddress</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

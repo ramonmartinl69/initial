@@ -8,7 +8,7 @@
         <field:textarea field="address" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_address" required="true" z="oMpUW5pyrfnhVr8lOftSXBbtKxs="/>
         <field:select field="country" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_country" items="${countryenums}" path="countryenums" z="bPwoz+A7K55OciPAAi3bsc7FZy0="/>
         <field:select field="province" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_province" items="${provinceenums}" path="provinceenums" required="true" z="jUQ528bG+xfA2dZHK35S38k0DhU="/>
-        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="YKs4hFzxGAe/Lp55rz0VQnJppOE="/>
+        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_postalCode" max="10" min="3" required="true" validationRegex="^[0-9]*$" z="Wnf/Gr9F/hBGNhmYTAA2NZhg4fU="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_population" required="true" z="58fipAErgKs1oayGykTTjok6NVM="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_addresNumber" required="true" z="yN+TWN3RclARCEM/HbV8RGPy+Mc="/>
         <field:select field="person" id="c_org_myorg_initial_roo_core_domain_model_HomeAddress_person" itemValue="id" items="${people}" path="/persons" z="m8wk65kCZhfWdDdRsUsqDPiB0GQ="/>

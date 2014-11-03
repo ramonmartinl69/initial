@@ -8,7 +8,7 @@
         <field:textarea field="address" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_address" required="true" z="cJEpP/ziEVD+b4riqoR7OqO7xXQ="/>
         <field:select field="country" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_country" items="${countryenums}" path="countryenums" z="AW4wiF45J3MaCodzFvpDhtVXnJY="/>
         <field:select field="province" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_province" items="${provinceenums}" path="provinceenums" required="true" z="HvmZggC4prqSsju6NrqUh5Fz7GE="/>
-        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="7QT3rpwzd3WOxrPBN5dRdobOW70="/>
+        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_postalCode" max="10" min="3" required="true" validationRegex="^[0-9]*$" z="uVq2RoHgpOb1xxP5QbsDmnonhnE="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_population" required="true" z="gpJvRUrCr968XFhys1feXwo9Bv4="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_addresNumber" required="true" z="oLALSZPviudH8yS2oMEGR6XRnvI="/>
         <field:textarea field="enterpriseName" id="c_org_myorg_initial_roo_core_domain_model_WorkAddress_enterpriseName" required="true" z="MhNR07YlWnk3W4ux1RRxjXUzFYc="/>

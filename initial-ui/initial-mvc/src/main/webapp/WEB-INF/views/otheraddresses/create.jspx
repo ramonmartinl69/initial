@@ -8,7 +8,7 @@
         <field:textarea field="address" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_address" required="true" z="Pmyt5jTMkXaIFdG+6iu+edZ+85Q="/>
         <field:select field="country" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_country" items="${countryenums}" path="countryenums" z="RuG5J9xG/9fIODwmEUjjgvMTZj0="/>
         <field:select field="province" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_province" items="${provinceenums}" path="provinceenums" required="true" z="ailoxokAw3fstIsQkF6/x5OoO64="/>
-        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_postalCode" max="10" min="3" required="true" validationRegex=".*\\d.*" z="/zD6jXHwLdbSvtx1Rjrn5qvL9+E="/>
+        <field:input field="postalCode" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_postalCode" max="10" min="3" required="true" validationRegex="^[0-9]*$" z="U3d0Vpa9jjhNtB1iIdgcWQAKe9g="/>
         <field:textarea field="population" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_population" required="true" z="2Xq9dAbsujFPfF5UX+5qVhblv/A="/>
         <field:textarea field="addresNumber" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_addresNumber" required="true" z="kd2T6xBXur0sus/D59CCIJ7h0sQ="/>
         <field:checkbox field="active" id="c_org_myorg_initial_roo_core_domain_model_OtherAddress_active" z="NiS1gtgTH4lJPVsZFZpDGTe3UKc="/>

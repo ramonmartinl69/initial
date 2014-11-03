@@ -13,51 +13,52 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <td>open</td>
-                    <td>http://localhost:8080/initial-mvc/;lang=en_US</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>j_username</td>
-                    <td>admin</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>j_password</td>
-                    <td>admin</td>
-                </tr>
-                <tr>
-                    <td>clickAndWait</td>
-                    <td>//input[@id = 'proceed']</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>Welcome to Initial-mvc</td>
-                </tr>
-        		<tr>
-                    <td>open</td>
-                    <td>http://localhost:8080/initial-mvc/roles?form&amp;lang=en_US</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>_roleName_id</td>
-                    <td>roleName1</td>
-                </tr>
-                <tr>
-                    <td>clickAndWait</td>
-                    <td>//input[@id = 'proceed']</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>verifyText</td>
-                    <td>_s_org_myorg_initial_roo_core_domain_security_AuthRole_roleName_roleName_id</td>
-                    <td>roleName1</td>
-                </tr>
-            </tbody>
+		    <tr>
+				<td>open</td>
+				<td>http://localhost:8080/initial-mvc/login;lang=en_US</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=j_username</td>
+				<td>admin</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=j_password</td>
+				<td>admin</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>id=proceed</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_title_title_id_pane</td>
+				<td>Welcome to Initial-mvc</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>link=Create new Auth Role</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=_roleName_id</td>
+				<td>roleName</td>
+			</tr>
+			<tr>
+				<td>clickAndWait</td>
+				<td>id=proceed</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>verifyText</td>
+				<td>_s_org_myorg_initial_roo_core_domain_security_AuthRole_roleName_roleName_id</td>
+				<td>roleName</td>
+			</tr>
+		</tbody>
     </table>
 </body>
 </html>
