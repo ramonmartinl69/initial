@@ -13,6 +13,55 @@
         <roo.version>1.2.5.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.version>3.2.6.RELEASE</spring.version>
+        		<db.name>initial</db.name>
+		<mockito.version>1.9.5</mockito.version>
+		<jmock.version>2.5.1</jmock.version>
+		<easymock.version>2.2</easymock.version>
+		<powermock.version>1.5.1</powermock.version>
+		<!-- Email Settings -->
+		<email.from>ramonmartinl69@gmail.com</email.from>
+		<email.host>smtp.gmail.com</email.host>
+		<email.password>xxxxxxxxxxx</email.password>
+		<email.port>587</email.port>
+		<email.protocol>smtp</email.protocol>
+		<email.subject>Registration Confirmation</email.subject>
+		<email.username>ramonmartinl69@gmail.com</email.username>
+		<!-- Database settings -->
+		<!-- PostgreSQL -->
+		<dbunit.dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dbunit.dataTypeFactoryName>
+		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+		<hibernate.dialect>org.hibernate.dialect.PostgreSQLDialec</hibernate.dialect>
+		<jdbc.groupId>postgresql</jdbc.groupId>
+		<jdbc.artifactId>postgresql</jdbc.artifactId>
+		<jdbc.version>9.1-901-1.jdbc4</jdbc.version>
+		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
+		<jdbc.url>jdbc\:postgresql\://localhost\:5432/initial?searchpath\=public</jdbc.url>
+		<jdbc.username>initial</jdbc.username>
+		<jdbc.password>initial</jdbc.password>
+		<!-- MySQL -->
+<!-- 		<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName> -->
+<!-- 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type> -->
+<!-- 		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect> -->
+<!-- 		<jdbc.groupId>mysql</jdbc.groupId> -->
+<!-- 		<jdbc.artifactId>mysql-connector-java</jdbc.artifactId> -->
+<!-- 		<jdbc.version>5.1.18</jdbc.version> -->
+<!-- 		<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName> -->
+<!-- 		<jdbc.url>jdbc:mysql://localhost:3306/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url> -->
+<!-- 		<jdbc.username>root</jdbc.username> -->
+<!-- 		<jdbc.password>root</jdbc.password> -->
+		<!-- HSQLDB (Faster Testing) -->
+		<!-- For Tomcat to Work you must download the JDBC Driver hsqldb.jar and 
+			put it in Tomcat´s /lib directoty -->
+<!-- 		<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName> -->
+<!-- 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type> -->
+<!-- 		<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect> -->
+<!-- 		<jdbc.groupId>org.hsqldb</jdbc.groupId> -->
+<!-- 		<jdbc.artifactId>hsqldb</jdbc.artifactId> -->
+<!-- 		<jdbc.version>2.2.9</jdbc.version> -->
+<!-- 		<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName> -->
+<!-- 		<jdbc.url>jdbc:hsqldb:C:/Users/Ramon/WKSPC_INITIAL/initial/HSQLDB/${db.name};shutdown=true</jdbc.url> -->
+<!-- 		<jdbc.username>sa</jdbc.username> -->
+<!-- 		<jdbc.password></jdbc.password> -->
     </properties>
     <modules>
         <module>initial-core</module>
