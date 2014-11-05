@@ -1,0 +1,4 @@
+* security setup fails in multimodule project
+* push in refactor of entities duplicates implements serializable.
+* finders dont work on JPAEntity 
+* GWT doesn´t compile on Roo 1.2.4

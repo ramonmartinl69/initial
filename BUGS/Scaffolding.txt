@@ -1,0 +1,13 @@
+# FINDERS
+1. Create all entities as ActiveRecord until you create the finders
+2. Create the finders and scaffold them to views
+3. Move in methods in Entity_Finder.aj to EntityRepository Interface with @query abstract methods or to AppQueryRepository
+4. Refactor Push-In finder Methods in Controllers and JSON controllers
+5. Copy menu.jspx to menu-nscf.jspx
+6. Copy layouts.jspx to layouts-nscf.jspx and point to menu-nscf.jspx in the last.
+7. Point to layouts-nscf.jspx in webmvc-config.xml
+8. Change to JPAEntity    
+
+# VIEWS
+1. Copy every *.jspx file except views.xml in /WEB-INF/views/entity/ to /WEB-INF/views/entity/z/
+2. Replace every definition in /views/entity/views.xml with the new files
