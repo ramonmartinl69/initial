@@ -13,7 +13,8 @@
         <roo.version>1.2.5.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.version>3.2.6.RELEASE</spring.version>
-        		<db.name>initial</db.name>
+        <spring-security.version>3.1.0.RELEASE</spring-security.version> <!-- Spring Security Setup -->
+        <db.name>initial</db.name>
 		<mockito.version>1.9.5</mockito.version>
 		<jmock.version>2.5.1</jmock.version>
 		<easymock.version>2.2</easymock.version>
@@ -28,16 +29,16 @@
 		<email.username>ramonmartinl69@gmail.com</email.username>
 		<!-- Database settings -->
 		<!-- PostgreSQL -->
-		<dbunit.dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dbunit.dataTypeFactoryName>
-		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-		<hibernate.dialect>org.hibernate.dialect.PostgreSQLDialec</hibernate.dialect>
-		<jdbc.groupId>postgresql</jdbc.groupId>
-		<jdbc.artifactId>postgresql</jdbc.artifactId>
-		<jdbc.version>9.1-901-1.jdbc4</jdbc.version>
-		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-		<jdbc.url>jdbc\:postgresql\://localhost\:5432/initial?searchpath\=public</jdbc.url>
-		<jdbc.username>initial</jdbc.username>
-		<jdbc.password>initial</jdbc.password>
+<!-- 		<dbunit.dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dbunit.dataTypeFactoryName> -->
+<!-- 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type> -->
+<!-- 		<hibernate.dialect>org.hibernate.dialect.PostgreSQLDialec</hibernate.dialect> -->
+<!-- 		<jdbc.groupId>postgresql</jdbc.groupId> -->
+<!-- 		<jdbc.artifactId>postgresql</jdbc.artifactId> -->
+<!-- 		<jdbc.version>9.1-901-1.jdbc4</jdbc.version> -->
+<!-- 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName> -->
+<!-- 		<jdbc.url>jdbc:postgresql://localhost:5432/initial?searchpath=initial</jdbc.url> -->
+<!-- 		<jdbc.username>initial</jdbc.username> -->
+<!-- 		<jdbc.password>initial</jdbc.password> -->
 		<!-- MySQL -->
 <!-- 		<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName> -->
 <!-- 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type> -->
@@ -52,16 +53,16 @@
 		<!-- HSQLDB (Faster Testing) -->
 		<!-- For Tomcat to Work you must download the JDBC Driver hsqldb.jar and 
 			put it in Tomcat´s /lib directoty -->
-<!-- 		<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName> -->
-<!-- 		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type> -->
-<!-- 		<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect> -->
-<!-- 		<jdbc.groupId>org.hsqldb</jdbc.groupId> -->
-<!-- 		<jdbc.artifactId>hsqldb</jdbc.artifactId> -->
-<!-- 		<jdbc.version>2.2.9</jdbc.version> -->
-<!-- 		<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName> -->
-<!-- 		<jdbc.url>jdbc:hsqldb:C:/Users/Ramon/WKSPC_INITIAL/initial/HSQLDB/${db.name};shutdown=true</jdbc.url> -->
-<!-- 		<jdbc.username>sa</jdbc.username> -->
-<!-- 		<jdbc.password></jdbc.password> -->
+		<dbunit.dataTypeFactoryName>org.dbunit.ext.hsqldb.HsqldbDataTypeFactory</dbunit.dataTypeFactoryName>
+		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+		<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
+		<jdbc.groupId>org.hsqldb</jdbc.groupId>
+		<jdbc.artifactId>hsqldb</jdbc.artifactId>
+		<jdbc.version>2.2.9</jdbc.version>
+		<jdbc.driverClassName>org.hsqldb.jdbcDriver</jdbc.driverClassName>
+		<jdbc.url>jdbc:hsqldb:C:/Users/Ramon/WKSPC_INITIAL/initial/HSQLDB/${db.name};shutdown=true</jdbc.url>
+		<jdbc.username>sa</jdbc.username>
+		<jdbc.password></jdbc.password>
     </properties>
     <modules>
         <module>initial-core</module>
@@ -71,7 +72,80 @@
     	<module>initial-deploy-jsf</module>
     	<module>initial-deploy-web</module>
     </modules>
+    <organization>
+		<name>My Organization</name>
+		<url>www.myorg.org</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>rmartinl</id>
+			<name>Ramon Martin Lopez</name>
+			<email>ramonmartinl69@gmail.com</email>
+			<timezone></timezone>
+			<organization>My Organization</organization>
+			<organizationUrl>www.myorg.org</organizationUrl>
+			<roles>
+				<role>Analyst Developer Arquitect</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>The first Contributor</name>
+			<email>tfc@myorg.org</email>
+			<url>http://10.38.40.54/redmine/users/4</url>
+			<organization>MyOrg Org</organization>
+			<organizationUrl>www.myorg.org</organizationUrl>
+			<roles>
+				<role>Project Leader</role>
+			</roles>
+		</contributor>
+	</contributors>
+	<licenses>
+		<license>
+			<name>MyLicence</name>
+			<url>http://www.MyLicence.org</url>
+		</license>
+	</licenses>
+	<issueManagement>
+		<system>MyIssueManagement</system>
+		<url>http://www.MyIssueManagement.org</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://localhost:8082</url>
+		<notifiers>
+			<notifier>
+				<type>mail</type>
+				<address>ramonmartinl69@gmail.com</address>
+			</notifier>
+		</notifiers>
+	</ciManagement>
+	<scm>
+		<connection>https://github.com/ramonmartinl69/initial</connection>
+		<developerConnection>https://github.com/ramonmartinl69/initial</developerConnection>
+		<url>https://github.com/ramonmartinl69/initial</url>
+	</scm>
     <repositories>
+    	<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>http://localhost:8081/artifactory/libs-release</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>libs-snapshot</name>
+			<url>http://localhost:8081/artifactory/libs-snapshot</url>
+		</repository>
+		<repository>
+	        <id>localhost</id>
+	        <name>localhost-releases</name>
+	        <url>http://localhost:8081/artifactory/ext-release-local</url>
+	    </repository>
         <repository>
             <id>spring-maven-release</id>
             <name>Spring Maven Release Repository</name>
@@ -89,6 +163,21 @@
         </repository>
     </repositories>
     <pluginRepositories>
+    	<!-- Artifactory -->
+    	<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>plugins-release</name>
+			<url>http://localhost:8081/artifactory/plugins-release</url>
+		</pluginRepository>
+		<pluginRepository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>plugins-snapshot</name>
+			<url>http://localhost:8081/artifactory/plugins-snapshot</url>
+		</pluginRepository>
         <pluginRepository>
             <id>spring-maven-release</id>
             <name>Spring Maven Release Repository</name>
@@ -105,11 +194,181 @@
             <url>http://spring-roo-repository.springsource.org/release</url>
         </pluginRepository>
     </pluginRepositories>
+    <!-- Deploy to Artifactory -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localhost</id>
+			<name>localhost-snapshots</name>
+			<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<!-- Dependencies inherited by child projects -->
     <dependencies>
+    	<!-- ROO dependencies -->
         <dependency>
             <groupId>org.springframework.roo</groupId>
             <artifactId>org.springframework.roo.annotations</artifactId>
         </dependency>
+        <!-- General dependencies for standard applications -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Mockito -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- EasyMock -->
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+				<version>${easymock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- Jmock -->
+			<dependency>
+				<groupId>org.jmock</groupId>
+				<artifactId>jmock</artifactId>
+				<version>${jmock.version}</version>
+				<optional>true</optional>
+				<scope>test</scope>
+			</dependency>
+			<!-- PowerMock core functionality -->
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-core</artifactId>
+				<version>${powermock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- PowerMock support module for JUnit 4.x. -->
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+				<version>${powermock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- PowerMock API for Mockito -->
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito</artifactId>
+				<version>${powermock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- PowerMock API for EasyMock -->
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-easymock</artifactId>
+				<version>${powermock.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- PowerMock Utility classes -->
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-support</artifactId>
+				<version>${powermock.version}</version>
+				<scope>test</scope>
+			</dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.flexjson</groupId>
+                <artifactId>flexjson</artifactId>
+                <version>2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
+            </dependency>
+            <!-- Spring dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!-- Spring Security -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${spring-security.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>	
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -372,4 +631,55 @@
             </plugins>
         </pluginManagement>
     </build>
+    <!-- Reporting -->
+    <reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<consoleOutput>true</consoleOutput>
+					<configLocation>https://svn.java.net/svn/appfuse~svn/trunk/www/checkstyle.xml</configLocation>
+					<failsOnError>false</failsOnError>
+					<maxAllowedViolations>3</maxAllowedViolations>
+				</configuration>
+				<version>2.6</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<instrumentation>
+						<excludes>
+							<exclude>**/model/*.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<linkXRef>true</linkXRef>
+					<targetJdk>1.7</targetJdk>
+				</configuration>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.7.1</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
