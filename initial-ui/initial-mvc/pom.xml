@@ -354,11 +354,6 @@
 				</executions>
 				<dependencies>
 					<dependency>
-						<!-- <groupId>mysql</groupId> -->
-						<!-- <artifactId>mysql-connector-java</artifactId> -->
-						<!-- <groupId>org.hsqldb</groupId> -->
-						<!-- <artifactId>hsqldb</artifactId> -->
-						<!-- Fails in Spring Roo shell -->
 						<groupId>${jdbc.groupId}</groupId>
 						<artifactId>${jdbc.artifactId}</artifactId>
 						<version>${jdbc.version}</version>
