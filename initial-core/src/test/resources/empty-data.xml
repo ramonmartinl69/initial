@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- Users -->
+     <table name="security_user" />
+    <!-- Roles -->
+    <table name="security_role" />
+    <!-- Role Assignments -->
+<!--     <table name="security_role_assignment" /> -->
+    <!-- Person -->
+    <table name="person" />
+    <!-- Address -->
+    <table name="address" />
+</dataset>
