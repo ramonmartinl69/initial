@@ -1,1 +1,2 @@
 # Instalar jcaptcha-integration-simple-servlet en Artifactory
+# Refactorizar los poms restantes para heradar del padre y las dependencias
