@@ -1,1 +1,3 @@
 # Instalar jcaptcha-integration-simple-servlet en Artifactory
+# Refactorizar los poms restantes para heredar del padre y las dependencias
+# Revisar el POM del initial/jsf para que importe las librerias de Primefaces
