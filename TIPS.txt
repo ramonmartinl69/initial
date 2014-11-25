@@ -1,0 +1,10 @@
+#TO CHANGE DBMS
+- Change DB properties in initial/pom.xml
+- Change lines in DBUnit Maven Plugin & Hibernate Maven Plugin associated woth the comment <!-- Fails in Spring Roo shell -->
+	in initial-core/pom.xml
+- Change lines in DBUnit Maven Plugin associated woth the comment <!-- Fails in Spring Roo shell -->
+	in initial-ui/initial-mvc/pom.xml
+- Change lines in DBUnit Maven Plugin associated woth the comment <!-- Fails in Spring Roo shell -->
+	in initial-ui/initial-jsf/pom.xml	
+- Change <property name="hibernate.dialect"> to the correspondig DB in initial-core/src/main/resources/META-INF/persistence.xml
+- Change database properties in initial-core/src/main/resources/META-INF/spring/database.properties
