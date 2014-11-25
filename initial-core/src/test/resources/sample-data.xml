@@ -35,44 +35,44 @@
         <column>user_name</column>
         <column>password</column>
         <column>enabled</column>
-        <column>activaton_key</column>
+        <column>activation_key</column>
         <row>
-            <value description="id_person_principal">-1</value>
+            <value description="id_user">-1</value>
             <value description="OPT_LOCK">0</value>
-            <value description="user_name">user</value>
+            <value description="user_name">user@initial.org</value>
             <value description="password">04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb</value>
             <value description="enabled">1</value>
         </row>
         <row>
-            <value description="id_person_principal">-2</value>
+            <value description="id_user">-2</value>
             <value description="OPT_LOCK">0</value>
-            <value description="user_name">admin</value>
+            <value description="user_name">admin@initial.org</value>
             <value description="password">8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918</value>
             <value description="enabled">1</value>
         </row>
         <row>
-            <value description="id_person_principal">-3</value>
+            <value description="id_user">-3</value>
             <value description="OPT_LOCK">0</value>
-            <value description="user_name">guest</value>
+            <value description="user_name">guest@initial.org</value>
             <value description="password">84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec</value>
             <value description="enabled">1</value>
         </row>
     </table>
     <!-- Role Assignments -->
     <table name="security_user_roles">
-        <column>id_user</column>
-        <column>id_role</column>
+        <column>security_user</column>
+        <column>roles</column>
         <row>
-            <value description="id_user">-1</value>
-            <value description="id_role">-1</value>
+            <value description="security_user">-1</value>
+            <value description="roles">-1</value>
         </row>
         <row>
-            <value description="id_user">-2</value>
-            <value description="id_role">-2</value>
+            <value description="security_user">-2</value>
+            <value description="roles">-2</value>
         </row>
         <row>
-            <value description="id_user">-3</value>
-            <value description="id_role">-3</value>
+            <value description="security_user">-3</value>
+            <value description="roles">-3</value>
         </row>
     </table>
 </dataset>

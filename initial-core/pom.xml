@@ -392,14 +392,14 @@
                     <password>${jdbc.password}</password>
                     <url>${jdbc.url}</url>
                     <!-- Dataset file format type. Valid types are: flat, xml, csv, and dtd -->
-<!--                     <src>src/test/resources/sample-data.xml</src> -->
-<!-- 					<format>xml</format> -->
+                    <src>src/test/resources/sample-data.xml</src>
+					<format>xml</format>
 <!--                     <src>src/test/resources/sample-flat-data.xml</src> -->
 <!-- 					<format>flat</format> -->
-					<src>src/test/resources/</src>
-                    <format>csv</format>
+<!-- 					<src>src/test/resources/</src> -->
+<!--                     <format>csv</format> -->
+					<!-- Clear all data after Populating it -->
                     <type>DELETE_ALL</type>
-<!-- 					<type>CLEAN_INSERT</type> -->
                     <schema>${dbunit.schema}</schema>
                     <skip>${skipTests}</skip>
                     <transaction>true</transaction>

@@ -36,7 +36,7 @@
 <!-- 		<jdbc.artifactId>postgresql</jdbc.artifactId> -->
 <!-- 		<jdbc.version>9.1-901-1.jdbc4</jdbc.version> -->
 <!-- 		<jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName> -->
-<!-- 		<jdbc.url>jdbc\:postgresql\://localhost\:5432/initial?searchpath\=public</jdbc.url> -->
+<!-- 		<jdbc.url>jdbc:postgresql://localhost:5432/initial?searchpath=initial</jdbc.url> -->
 <!-- 		<jdbc.username>initial</jdbc.username> -->
 <!-- 		<jdbc.password>initial</jdbc.password> -->
 		<!-- MySQL -->

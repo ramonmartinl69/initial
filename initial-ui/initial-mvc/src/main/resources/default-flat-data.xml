@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
 	<!-- Users -->
-    <security_user id_user="1" OPT_LOCK="0" user_name="user" password="04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb" enabled="1" />
-		<security_user id_user="2" OPT_LOCK="0" user_name="admin" password="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" enabled="1" />
-		<security_user id_user="3" OPT_LOCK="0" user_name="guest" password="84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec" enabled="1" />
+    <security_user id_user="1" OPT_LOCK="0" user_name="user@initial.org" password="04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb" enabled="1" />
+		<security_user id_user="2" OPT_LOCK="0" user_name="admin@initial.org" password="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" enabled="1" />
+		<security_user id_user="3" OPT_LOCK="0" user_name="guest@initial.org" password="84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec" enabled="1" />
    	<!-- Roles -->
     <security_role id_role="1" OPT_LOCK="0" authority="0" role_name="Default role for all Users" /> <!-- ROLE_USER -->
     <security_role id_role="2" OPT_LOCK="0" authority="1" role_name="Administrator role (can edit Users)" /> <!-- ROLE_ADMIN -->
     <security_role id_role="3" OPT_LOCK="0" authority="2" role_name="Guest role" /> <!-- ROLE_ANONYMOUS -->
     <!-- Role Assignments -->
-    <security_user_roles id_user="1" id_role="1" />
-    <security_user_roles id_user="2" id_role="2" />
-    <security_user_roles id_user="3" id_role="3" />
+    <security_user_roles security_user="1" roles="1" />
+    <security_user_roles security_user="2" roles="2" />
+    <security_user_roles security_user="3" roles="3" />
     <!-- Person -->
     <person />
     <!-- Address -->

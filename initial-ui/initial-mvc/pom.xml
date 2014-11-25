@@ -324,13 +324,14 @@
 					<password>${jdbc.password}</password>
 					<url>${jdbc.url}</url>
 					<!-- Dataset file format type. Valid types are: flat, xml, csv, and dtd -->
-	<!-- 				<src>src/main/resources/default-data.xml</src> -->
-	<!-- 				<format>xml</format> -->
-	<!-- 				<src>src/main/resources/default-flat-data.xml</src> -->
-	<!-- 				<format>flat</format> -->
+<!-- 					<src>src/main/resources/default-data.xml</src> -->
+<!-- 					<format>xml</format> -->
+<!-- 					<src>src/main/resources/default-flat-data.xml</src> -->
+<!-- 					<format>flat</format> -->
 					<src>src/main/resources/</src>
 					<format>csv</format>
-					<type>DELETE_ALL</type>
+					<!-- Clear All Data before inserting them -->
+					<type>CLEAN_INSERT</type>
 					<schema>${dbunit.schema}</schema>
 					<skip>${skipTests}</skip>
 					<transaction>true</transaction>
